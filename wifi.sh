@@ -1,9 +1,8 @@
 #!/bin/bash
 
 sudo apt-get update -y
-sudo apt-get upgrade -y
 
-sudo apt-get install hostapd dnsmasq apache2 -y
+sudo apt-get install hostapd dnsmasq apache2 iptables -y
 
 sudo service network-manager stop
 
@@ -21,7 +20,7 @@ sudo fuser -k 53/tcp
 sudo dnsmasq -C ./config/dnsmasq.conf
 sudo hostapd ./config/hostapd.conf -B
 
-sudo ifconfig wlxf81a6720e23e 10.0.0.1 netmask 255.255.255.0
+sudo ifconfig wlan1 10.0.0.1 netmask 255.255.255.0
 
 sudo service apache2 start
 sudo cp ./config/000-default.conf /etc/apache2/sites-enabled/000-default.conf
