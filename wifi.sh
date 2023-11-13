@@ -1,5 +1,16 @@
 #!/bin/bash
 
+#############################################################################
+echo "Welcome to the Wi-Fi Fake (Hotspot)"
+
+ifconfig -a
+
+read -p "Enter the name of your Wi-Fi interface: " wifi_interface
+
+sed -i "s/interface=wlan1/interface=$wifi_interface/" ./config/dnsmasq.conf
+sed -i "s/interface=wlan1/interface=$wifi_interface/" ./config/hostapd.conf
+##############################################################################
+
 sudo apt-get update -y
 
 sudo apt-get install hostapd dnsmasq apache2 iptables -y,
