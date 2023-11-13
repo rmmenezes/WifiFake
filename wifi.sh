@@ -4,7 +4,7 @@ sudo apt-get update -y
 
 sudo apt-get install hostapd dnsmasq apache2 iptables -y
 
-sudo service network-manager stop
+sudo systemctl stop NetworkManager
 
 sudo echo 1 > /proc/sys/net/ipv4/ip_forward
 sudo iptables --flush
@@ -22,7 +22,7 @@ sudo hostapd ./config/hostapd.conf -B
 
 sudo ifconfig wlan1 10.0.0.1 netmask 255.255.255.0
 
-sudo service apache2 start
+sudo systemctl start apache2
 sudo cp ./config/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 sudo cp ./captive-portal/index.html /var/www/html/index.html
-sudo service apache2 restart
+sudo systemctl restart apache2
