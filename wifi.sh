@@ -2,7 +2,7 @@
 
 sudo apt-get update -y
 
-sudo apt-get install hostapd dnsmasq apache2 iptables -y
+sudo apt-get install hostapd dnsmasq apache2 iptables -y,
 
 sudo systemctl stop NetworkManager
 
@@ -22,7 +22,8 @@ sudo hostapd ./config/hostapd.conf -B
 
 sudo ifconfig wlan1 10.0.0.1 netmask 255.255.255.0
 
-sudo systemctl start apache2
+sudo systemctl start apache2.service
+sudo a2enmod rewrite
 sudo cp ./config/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 sudo cp ./captive-portal/index.html /var/www/html/index.html
-sudo systemctl restart apache2
+sudo systemctl restart apache2.service
