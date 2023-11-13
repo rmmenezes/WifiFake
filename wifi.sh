@@ -21,7 +21,9 @@ sudo fuser -k 53/tcp
 sudo dnsmasq -C ./config/dnsmasq.conf
 sudo hostapd ./config/hostapd.conf -B
 
+sudo ifconfig wlxf81a6720e23e 10.0.0.1 netmask 255.255.255.0
+
 sudo service apache2 start
-sudo mv ./config/000-default.conf /etc/apache2/sites-enabled/000-default.conf
-sudo mv ./captive-portal/index.html /var/www/html/index.html
+sudo cp ./config/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+sudo cp ./captive-portal/index.html /var/www/html/index.html
 sudo service apache2 restart
