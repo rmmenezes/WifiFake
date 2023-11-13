@@ -31,7 +31,7 @@ sudo fuser -k 53/tcp
 sudo dnsmasq -C ./config/dnsmasq.conf
 sudo hostapd ./config/hostapd.conf -B
 
-sudo ifconfig wlan1 10.0.0.1 netmask 255.255.255.0
+sudo ifconfig $wifi_interface 10.0.0.1 netmask 255.255.255.0
 
 sudo systemctl start apache2.service
 sudo a2enmod rewrite
