@@ -22,6 +22,13 @@ sudo iptables --delete-chain
 sudo iptables --table nat --delete-chain
 sudo iptables -P FORWARD ACCEPT
 
+ifconfig -a
+read -p "Enter the name of your interface with Internet: " interface_internet
+
+sudo iptables -t nat -A POSTROUTING -o $interface_internet -j MASQUERADE
+sudo iptables -A FORWARD -i $interface_internet -o $wifi_interface -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i $wifi_interface -o $interface_internet -j ACCEPT
+
 sudo fuser -k 53/tcp
 sudo fuser -k 53/tcp
 sudo fuser -k 53/tcp
