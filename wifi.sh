@@ -13,8 +13,8 @@ sed -i "s/interface=wlan1/interface=$wifi_interface/" ./config/hostapd.conf
 
 sudo apt-get update -y
 
-sudo apt-get install hostapd dnsmasq apache2 iptables php -y
-
+sudo apt-get install hostapd dnsmasq apache2 iptables php libapache2-mod-php -y
+     
 sudo echo 1 > /proc/sys/net/ipv4/ip_forward
 sudo iptables --flush
 sudo iptables --table nat --flush
@@ -40,6 +40,8 @@ sudo ifconfig $wifi_interface 10.0.0.1 netmask 255.255.255.0
 
 sudo systemctl start apache2.service
 sudo a2enmod rewrite
+sudo a2enmod php8.1
+
 sudo cp ./config/000-default.conf /etc/apache2/sites-enabled/000-default.conf
-sudo cp ./captive-portal/index.html /var/www/html/index.html
+sudo cp ./captive-portal/* /var/www/html/
 sudo systemctl restart apache2.service
