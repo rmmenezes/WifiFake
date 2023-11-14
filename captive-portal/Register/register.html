@@ -44,9 +44,9 @@
 </head>
 
 <body class="" onload="saveToken()">
-      <div id="layout-header" class="content-heading " >
+      <div id="layout-header" class="content-heading inner-content" >
     </div>
-    <header class="header header-transparent header-waterfall controller_index action_index affix-top">
+    <header class="header header-transparent header-waterfall controller_auth action_progressivecustom affix-top">
       <ul class="nav nav-list pull-left" style="margin:10px">
                 <span class="align-middle" style="line-height: 45px;">
                       <img id="header-logo" src="https://fw.wifire.me/s3/images/640f31335181e-c764c9b8e95efd0782f73500a3af9638.jpg" />
@@ -64,706 +64,296 @@
     </center>
   </div>
 
-  <div class="container" style="max-width: 500px">
-      <center>
-      <div>
-        <img id="establishment-logo" class="thumbnail" src="https://fw.wifire.me/s3/images/640f31335181e-c764c9b8e95efd0782f73500a3af9638.jpg"/>
-        <div id="login-content" style="margin-top: -50px;padding-top: 50px;">
-          <h1 id="login-title" class="establishment-text-color" style="margin-top: 10px;font-size: 28px;font-weight: bold;">
-            Fundação Parque Tecnológico de Itaipu          </h1>
-          <script type="text/javascript">
-  var forceSecondAuthenticationMethodFor = '';
-</script>
-<center>
-  
-  <div id="buttons-container" style="display: block;">
-    <div id="message-fwforms" class="message card-red" style="display: none;">
-      <p></p>
+  <div id="establishment-top">
+      <div class="logo">
+      <img id="establishment-logo" src="https://fw.wifire.me/s3/images/640f31335181e-c764c9b8e95efd0782f73500a3af9638.jpg"/>
     </div>
-    <div class="submessage card-orange" style="display: none;">
-      <p></p>
-    </div>
-    <div id="content-login-facebook" class="contents" style="">
-      <span id="page-description" class="establishment-text-color">
-        Bem vindo, faça seu seu login como uma das opções abaixo para liberar acesso à nossa rede exclusiva para COLABORADORES      </span>
+    <h1 class="establishment-text-top-color">Fundação Parque Tecnológico de Itaipu</h1>
+  </div>
+<div id="login-content">
+  <center>
+  <div id="progressive_container">
+    <div id="progressive_content_fields">
+      <h2 class="establishment-text-color" style="margin: 0px; font-size: 24px; font-style: normal;">
+        Olá <strong></strong>,
+      </h2>
+      <h3 class="establishment-text-color" style="margin: 0px; font-size: 16px;">
+                  para finalizar a autenticação <br> informe seus dados:              </h3>
       <br>
-      <h4 id="connect-with-label" class="establishment-text-color" style="margin: 10px auto 0;font-size: 16px">Conectar com:</h4>
-
-      <div class="div-line login-social-container">
-  <a class="btn btn-login btn-facebook-login" href="./Facebook/login_facebook.html">
-    <i class="fa fa-facebook-official"></i> Facebook <br>
-  </a><br />
-  <small class="establishment-text-color" style="display: none;">(NÃO permite que o aplicativo publique no Facebook)</small>
-</div>
-
-</div><div class="div-line login-social-container">
-  <a class="btn btn-login btn-linkedin-login btn-access" href="/auth/linkedin?establishment=8167&mac=3A%3A23%3A98%3AE3%3A7E%3AEF">
-    <i class="fa fa-linkedin"></i> LinkedIn  </a>
-
-              
-        
-                  <div class="div-line login-basic-container">
-           
-        
-        
-        
-        
-        
-              
-                        <div class="div-line login-oauth2-container">
-                    <a class="btn btn-login btn-action" style="background-color: #1034bd!important; color: #ffffff!important" href="./Office365/login_outlook.html">
-              OFFICE 365            </a>
-          </div>
-              
-      
-      
-      <br />
-    </div>
-
-        <div id="form-login" class="contents" style="display: none;">
-      <form class="formAction" method="post" action="/auth/getcode">
-        <input type="hidden" name="establishment" value="BOrr9-xoMqnbgd1aeszaXhHDEDY" />
-        <input type="hidden" name="mac" value="3A:23:98:E3:7E:EF" />
-        <h4 class="establishment-text-color">Login / Cadastro WiFire</h4>
-
-        <div class="form-group form-group-label">
-          <label for="email" class="establishment-text-color">Email:</label>
-          <input id="email" name="email" type="email" class="form-control lowercase" placeholder="Email" value="" />
-          <input id="ignore_suggestion" name="ignore_suggestion" type="hidden" value="" />
-        </div>
-                              <p id="email_warning" class="establishment-text-color"><strong>ATENÇÃO:</strong> para receber o email com o código é necessário que os dados móveis do seu celular esteja ativo e funcionando</p>
-                          <button id="btn-execute-login" class="btn btn-login btn-email-login btn-action btn-access" type="submit" data-loading-text="Conectando...">Conectar / Cadastrar        </button>
-        <br>
-        <span type="button" class="btn-link btn-back btn-go-to pull-left btn-establishment-link" data-hide="#form-login" data-show="#content-login-facebook, .btn-back-first">
-          <i class="fa fa-angle-left"></i> Voltar        </span>
-      </form>
-    </div>
-
-    <div id="form-email-code" class="contents" style="display: none;">
-      <form method="post" class="formAction" action="/auth/logincode">
-        <input type="hidden" name="establishment" value="zMCWkFcTXsZB_Pi6Y39w0n9FnRM" />
-        <input type="hidden" name="mac" id="email-mac" value="3A:23:98:E3:7E:EF" />
-        <input type="hidden" name="email" id="email-code" value="" />
-        <h4 class="establishment-text-color login-code-title">
-          Digite o código enviado no email          <span id="email-code-message" style="display:none"></span>
-        </h4>
-        <div class="auth-code-wrap">
-          <input class="form-control auth-code" id="login_code" name="code" type="number" pattern="[0-9]*" inputmode="numeric" placeholder="" maxlength="4" autocomplete="off" max="9999" data-autosubmit="1"/>
-          <div class="touch-flex">
-            <div class="touch-flex-cell"></div>
-            <div class="touch-flex-cell"></div>
-            <div class="touch-flex-cell"></div>
-            <div class="touch-flex-cell last"></div>
-          </div>
-        </div>
-        <br>
-        <button class="btn btn-primary btn-sms-login btn-action btn-access auth-code-submit" id="check_email_code" type="submit" data-loading-text="Conectando...">
-          Entrar        </button>
-        <br>
-        <span type="button" class="btn-link btn-back btn-go-to pull-left btn-establishment-link" data-hide="#form-email-code" data-show="#content-login-facebook, .btn-back-first">
-          <i class="fa fa-angle-left"></i> Voltar        </span>
-      </form>
-    </div>
-
-    <div id="form-ldap" class="contents" style="display: none;">
-      <form class="formAction" method="post" action="/authsso/ldap">
-        <input type="hidden" name="establishment" value="MpcYEacEKQcWcp81tZbA5F65Gh8" />
-        <input type="hidden" name="mac" value="3A:23:98:E3:7E:EF" />
-        <h4 class="establishment-text-color">
-          Login LDAP WiFire        </h4>
-                <div class="form-group form-group-label">
-          <label for="ldap-email" class="establishment-text-color">Email:</label>
-          <input id="ldap-email" name="email" type="email" class="form-control " placeholder="Email" value=""  />
-        </div>
-        <div class="form-group form-group-label">
-          <label for="ldap-password">Senha:</label>
-          <input id="ldap-password" name="password" type="password" class="form-control" placeholder="Senha" value="" />
-        </div>
-        <br>
-        <button class="btn btn-login btn-email-login btn-action btn-access" type="submit" data-loading-text="Conectando...">
-          Entrar        </button>
-        <br>
-        <span type="button" class="btn-link btn-back btn-go-to pull-left btn-establishment-link" data-hide="#form-ldap" data-show="#content-login-facebook, .btn-back-first">
-          <i class="fa fa-angle-left"></i> Voltar        </span>
-      </form>
-    </div>
-
-    <div id="form-user" class="contents" style="display: none;">
-      <form class="formAction" method="post" action="/auth/username">
-        <input type="hidden" name="establishment" value="8167" />
-        <input type="hidden" name="mac" value="3A:23:98:E3:7E:EF" />
-        <h4 class="establishment-text-color">Login Estabelecimento</h4>
-
-        <div class="form-group form-group-label">
-          <label for="username" class="establishment-text-color">Usuário (Informe seu e-mail corporativo @pti.org.br ou @turismoitaipu.com.br):</label>
-          <input id="username" name="username" type="text" class="form-control lowercase" placeholder="Usuário" value="" />
-        </div>
-        <br>
-
-        <div class="form-group form-group-label">
-          <label for="password" class="establishment-text-color">Senha (Informe a senha do seu e-mail corporativo @pti.org.br ou @turismoitaipu.com.br):            :</label>
-          <input id="password" name="password" type="password" class="form-control lowercase" placeholder="Senha" value="" />
-        </div>
-        <br>
-        <button class="btn btn-login btn-user-login btn-action btn-access" type="submit" data-loading-text="Conectando...">Conectar        </button>
-        <br>
-        <span type="button" class="btn-link btn-back btn-go-to pull-left btn-establishment-link" data-hide="#form-user" data-show="#content-login-facebook, .btn-back-first">
-          <i class="fa fa-angle-left"></i> Voltar        </span>
-      </form>
-    </div>
-
-    <div id="form-sms" class="contents" style="display: none;">
-      <form class="formAction" method="post" action="/auth/authmessage" data-show="#form-sms-code" data-hide="#form-sms">
-        <input type="hidden" name="establishment" value="1e2qk4NpgcsFrilvVfBy5QOU3ok" />
-        <input type="hidden" name="mac" value="3A:23:98:E3:7E:EF" />
-        <input type="hidden" name="authmessagetoken" value="T4fNH9zclk_7c5a1hKKQy_xYTBPZnDx32Il6Gv2YIU8vKmK9Akx0EOHxSmntRFLzFVT6rYU" />
-        <input type="hidden" name="whatsapp" id="whatsapp_message" value="0" />
-                  <h4 id="form-sms-title" class="establishment-text-color">Login via Mensagem</h4>
-                <div class="form-group form-group-label" style="display: block;overflow: hidden;">
-          <label for="phone" class="establishment-text-color">Celular:</label>
-          <div class="col-sm-12 col-xs-12 col-xx-12 col-md-8" style="margin-bottom: 10px;padding-top: 2px">
-            <select class="form-control country-select" name="ddi_code" value="55|BR" id="phone-ddi" style="width: 80%">
-                              <option value="55|BR" data-phonecode="55" data-flag="BR">Brasil (+55)</option>
-                              <option value="+358-18|AX" data-phonecode="+358-18" data-flag="AX">Aland Islands (++358-18)</option>
-                              <option value="355|AL" data-phonecode="355" data-flag="AL">Albania (+355)</option>
-                              <option value="213|DZ" data-phonecode="213" data-flag="DZ">Algeria (+213)</option>
-                              <option value="+1-684|AS" data-phonecode="+1-684" data-flag="AS">American Samoa (++1-684)</option>
-                              <option value="376|AD" data-phonecode="376" data-flag="AD">Andorra (+376)</option>
-                              <option value="244|AO" data-phonecode="244" data-flag="AO">Angola (+244)</option>
-                              <option value="+1-264|AI" data-phonecode="+1-264" data-flag="AI">Anguilla (++1-264)</option>
-                              <option value="672|AQ" data-phonecode="672" data-flag="AQ">Antarctica (+672)</option>
-                              <option value="+1-268|AG" data-phonecode="+1-268" data-flag="AG">Antigua And Barbuda (++1-268)</option>
-                              <option value="54|AR" data-phonecode="54" data-flag="AR">Argentina (+54)</option>
-                              <option value="374|AM" data-phonecode="374" data-flag="AM">Armenia (+374)</option>
-                              <option value="297|AW" data-phonecode="297" data-flag="AW">Aruba (+297)</option>
-                              <option value="61|AU" data-phonecode="61" data-flag="AU">Australia (+61)</option>
-                              <option value="43|AT" data-phonecode="43" data-flag="AT">Austria (+43)</option>
-                              <option value="994|AZ" data-phonecode="994" data-flag="AZ">Azerbaijan (+994)</option>
-                              <option value="+1-242|BS" data-phonecode="+1-242" data-flag="BS">Bahamas The (++1-242)</option>
-                              <option value="973|BH" data-phonecode="973" data-flag="BH">Bahrain (+973)</option>
-                              <option value="880|BD" data-phonecode="880" data-flag="BD">Bangladesh (+880)</option>
-                              <option value="+1-246|BB" data-phonecode="+1-246" data-flag="BB">Barbados (++1-246)</option>
-                              <option value="375|BY" data-phonecode="375" data-flag="BY">Belarus (+375)</option>
-                              <option value="32|BE" data-phonecode="32" data-flag="BE">Belgium (+32)</option>
-                              <option value="501|BZ" data-phonecode="501" data-flag="BZ">Belize (+501)</option>
-                              <option value="229|BJ" data-phonecode="229" data-flag="BJ">Benin (+229)</option>
-                              <option value="+1-441|BM" data-phonecode="+1-441" data-flag="BM">Bermuda (++1-441)</option>
-                              <option value="975|BT" data-phonecode="975" data-flag="BT">Bhutan (+975)</option>
-                              <option value="591|BO" data-phonecode="591" data-flag="BO">Bolivia (+591)</option>
-                              <option value="387|BA" data-phonecode="387" data-flag="BA">Bosnia and Herzegovina (+387)</option>
-                              <option value="267|BW" data-phonecode="267" data-flag="BW">Botswana (+267)</option>
-                              <option value="+999|BV" data-phonecode="+999" data-flag="BV">Bouvet Island (++999)</option>
-                              <option value="246|IO" data-phonecode="246" data-flag="IO">British Indian Ocean Territory (+246)</option>
-                              <option value="673|BN" data-phonecode="673" data-flag="BN">Brunei (+673)</option>
-                              <option value="359|BG" data-phonecode="359" data-flag="BG">Bulgaria (+359)</option>
-                              <option value="226|BF" data-phonecode="226" data-flag="BF">Burkina Faso (+226)</option>
-                              <option value="257|BI" data-phonecode="257" data-flag="BI">Burundi (+257)</option>
-                              <option value="855|KH" data-phonecode="855" data-flag="KH">Cambodia (+855)</option>
-                              <option value="237|CM" data-phonecode="237" data-flag="CM">Cameroon (+237)</option>
-                              <option value="1|CA" data-phonecode="1" data-flag="CA">Canada (+1)</option>
-                              <option value="238|CV" data-phonecode="238" data-flag="CV">Cape Verde (+238)</option>
-                              <option value="+1-345|KY" data-phonecode="+1-345" data-flag="KY">Cayman Islands (++1-345)</option>
-                              <option value="236|CF" data-phonecode="236" data-flag="CF">Central African Republic (+236)</option>
-                              <option value="235|TD" data-phonecode="235" data-flag="TD">Chad (+235)</option>
-                              <option value="56|CL" data-phonecode="56" data-flag="CL">Chile (+56)</option>
-                              <option value="86|CN" data-phonecode="86" data-flag="CN">China (+86)</option>
-                              <option value="61|CX" data-phonecode="61" data-flag="CX">Christmas Island (+61)</option>
-                              <option value="61|CC" data-phonecode="61" data-flag="CC">Cocos (Keeling] Islands (+61)</option>
-                              <option value="57|CO" data-phonecode="57" data-flag="CO">Colombia (+57)</option>
-                              <option value="269|KM" data-phonecode="269" data-flag="KM">Comoros (+269)</option>
-                              <option value="242|CG" data-phonecode="242" data-flag="CG">Congo (+242)</option>
-                              <option value="243|CD" data-phonecode="243" data-flag="CD">Congo The Democratic Republic Of The (+243)</option>
-                              <option value="682|CK" data-phonecode="682" data-flag="CK">Cook Islands (+682)</option>
-                              <option value="506|CR" data-phonecode="506" data-flag="CR">Costa Rica (+506)</option>
-                              <option value="225|CI" data-phonecode="225" data-flag="CI">Cote D'Ivoire (Ivory Coast] (+225)</option>
-                              <option value="385|HR" data-phonecode="385" data-flag="HR">Croatia (Hrvatska] (+385)</option>
-                              <option value="53|CU" data-phonecode="53" data-flag="CU">Cuba (+53)</option>
-                              <option value="357|CY" data-phonecode="357" data-flag="CY">Cyprus (+357)</option>
-                              <option value="420|CZ" data-phonecode="420" data-flag="CZ">Czech Republic (+420)</option>
-                              <option value="45|DK" data-phonecode="45" data-flag="DK">Denmark (+45)</option>
-                              <option value="253|DJ" data-phonecode="253" data-flag="DJ">Djibouti (+253)</option>
-                              <option value="+1-767|DM" data-phonecode="+1-767" data-flag="DM">Dominica (++1-767)</option>
-                              <option value="+1-809 and 1-829|DO" data-phonecode="+1-809 and 1-829" data-flag="DO">Dominican Republic (++1-809 and 1-829)</option>
-                              <option value="670|TL" data-phonecode="670" data-flag="TL">East Timor (+670)</option>
-                              <option value="593|EC" data-phonecode="593" data-flag="EC">Ecuador (+593)</option>
-                              <option value="20|EG" data-phonecode="20" data-flag="EG">Egypt (+20)</option>
-                              <option value="503|SV" data-phonecode="503" data-flag="SV">El Salvador (+503)</option>
-                              <option value="240|GQ" data-phonecode="240" data-flag="GQ">Equatorial Guinea (+240)</option>
-                              <option value="291|ER" data-phonecode="291" data-flag="ER">Eritrea (+291)</option>
-                              <option value="372|EE" data-phonecode="372" data-flag="EE">Estonia (+372)</option>
-                              <option value="251|ET" data-phonecode="251" data-flag="ET">Ethiopia (+251)</option>
-                              <option value="500|FK" data-phonecode="500" data-flag="FK">Falkland Islands (+500)</option>
-                              <option value="298|FO" data-phonecode="298" data-flag="FO">Faroe Islands (+298)</option>
-                              <option value="679|FJ" data-phonecode="679" data-flag="FJ">Fiji Islands (+679)</option>
-                              <option value="358|FI" data-phonecode="358" data-flag="FI">Finland (+358)</option>
-                              <option value="33|FR" data-phonecode="33" data-flag="FR">France (+33)</option>
-                              <option value="594|GF" data-phonecode="594" data-flag="GF">French Guiana (+594)</option>
-                              <option value="689|PF" data-phonecode="689" data-flag="PF">French Polynesia (+689)</option>
-                              <option value="+999|TF" data-phonecode="+999" data-flag="TF">French Southern Territories (++999)</option>
-                              <option value="241|GA" data-phonecode="241" data-flag="GA">Gabon (+241)</option>
-                              <option value="220|GM" data-phonecode="220" data-flag="GM">Gambia The (+220)</option>
-                              <option value="995|GE" data-phonecode="995" data-flag="GE">Georgia (+995)</option>
-                              <option value="49|DE" data-phonecode="49" data-flag="DE">Germany (+49)</option>
-                              <option value="233|GH" data-phonecode="233" data-flag="GH">Ghana (+233)</option>
-                              <option value="350|GI" data-phonecode="350" data-flag="GI">Gibraltar (+350)</option>
-                              <option value="30|GR" data-phonecode="30" data-flag="GR">Greece (+30)</option>
-                              <option value="299|GL" data-phonecode="299" data-flag="GL">Greenland (+299)</option>
-                              <option value="+1-473|GD" data-phonecode="+1-473" data-flag="GD">Grenada (++1-473)</option>
-                              <option value="590|GP" data-phonecode="590" data-flag="GP">Guadeloupe (+590)</option>
-                              <option value="+1-671|GU" data-phonecode="+1-671" data-flag="GU">Guam (++1-671)</option>
-                              <option value="502|GT" data-phonecode="502" data-flag="GT">Guatemala (+502)</option>
-                              <option value="+44-1481|GG" data-phonecode="+44-1481" data-flag="GG">Guernsey and Alderney (++44-1481)</option>
-                              <option value="224|GN" data-phonecode="224" data-flag="GN">Guinea (+224)</option>
-                              <option value="245|GW" data-phonecode="245" data-flag="GW">Guinea-Bissau (+245)</option>
-                              <option value="592|GY" data-phonecode="592" data-flag="GY">Guyana (+592)</option>
-                              <option value="509|HT" data-phonecode="509" data-flag="HT">Haiti (+509)</option>
-                              <option value=" +999|HM" data-phonecode=" +999" data-flag="HM">Heard and McDonald Islands (+ +999)</option>
-                              <option value="504|HN" data-phonecode="504" data-flag="HN">Honduras (+504)</option>
-                              <option value="852|HK" data-phonecode="852" data-flag="HK">Hong Kong S.A.R. (+852)</option>
-                              <option value="36|HU" data-phonecode="36" data-flag="HU">Hungary (+36)</option>
-                              <option value="354|IS" data-phonecode="354" data-flag="IS">Iceland (+354)</option>
-                              <option value="91|IN" data-phonecode="91" data-flag="IN">India (+91)</option>
-                              <option value="62|ID" data-phonecode="62" data-flag="ID">Indonesia (+62)</option>
-                              <option value="98|IR" data-phonecode="98" data-flag="IR">Iran (+98)</option>
-                              <option value="964|IQ" data-phonecode="964" data-flag="IQ">Iraq (+964)</option>
-                              <option value="353|IE" data-phonecode="353" data-flag="IE">Ireland (+353)</option>
-                              <option value="972|IL" data-phonecode="972" data-flag="IL">Israel (+972)</option>
-                              <option value="39|IT" data-phonecode="39" data-flag="IT">Italy (+39)</option>
-                              <option value="+1-876|JM" data-phonecode="+1-876" data-flag="JM">Jamaica (++1-876)</option>
-                              <option value="81|JP" data-phonecode="81" data-flag="JP">Japan (+81)</option>
-                              <option value="+44-1534|JE" data-phonecode="+44-1534" data-flag="JE">Jersey (++44-1534)</option>
-                              <option value="962|JO" data-phonecode="962" data-flag="JO">Jordan (+962)</option>
-                              <option value="7|KZ" data-phonecode="7" data-flag="KZ">Kazakhstan (+7)</option>
-                              <option value="254|KE" data-phonecode="254" data-flag="KE">Kenya (+254)</option>
-                              <option value="686|KI" data-phonecode="686" data-flag="KI">Kiribati (+686)</option>
-                              <option value="850|KP" data-phonecode="850" data-flag="KP">Korea North (+850)</option>
-                              <option value="82|KR" data-phonecode="82" data-flag="KR">Korea South (+82)</option>
-                              <option value="965|KW" data-phonecode="965" data-flag="KW">Kuwait (+965)</option>
-                              <option value="996|KG" data-phonecode="996" data-flag="KG">Kyrgyzstan (+996)</option>
-                              <option value="856|LA" data-phonecode="856" data-flag="LA">Laos (+856)</option>
-                              <option value="371|LV" data-phonecode="371" data-flag="LV">Latvia (+371)</option>
-                              <option value="961|LB" data-phonecode="961" data-flag="LB">Lebanon (+961)</option>
-                              <option value="266|LS" data-phonecode="266" data-flag="LS">Lesotho (+266)</option>
-                              <option value="231|LR" data-phonecode="231" data-flag="LR">Liberia (+231)</option>
-                              <option value="218|LY" data-phonecode="218" data-flag="LY">Libya (+218)</option>
-                              <option value="423|LI" data-phonecode="423" data-flag="LI">Liechtenstein (+423)</option>
-                              <option value="370|LT" data-phonecode="370" data-flag="LT">Lithuania (+370)</option>
-                              <option value="352|LU" data-phonecode="352" data-flag="LU">Luxembourg (+352)</option>
-                              <option value="853|MO" data-phonecode="853" data-flag="MO">Macau S.A.R. (+853)</option>
-                              <option value="389|MK" data-phonecode="389" data-flag="MK">Macedonia (+389)</option>
-                              <option value="261|MG" data-phonecode="261" data-flag="MG">Madagascar (+261)</option>
-                              <option value="265|MW" data-phonecode="265" data-flag="MW">Malawi (+265)</option>
-                              <option value="60|MY" data-phonecode="60" data-flag="MY">Malaysia (+60)</option>
-                              <option value="960|MV" data-phonecode="960" data-flag="MV">Maldives (+960)</option>
-                              <option value="223|ML" data-phonecode="223" data-flag="ML">Mali (+223)</option>
-                              <option value="356|MT" data-phonecode="356" data-flag="MT">Malta (+356)</option>
-                              <option value="+44-1624|IM" data-phonecode="+44-1624" data-flag="IM">Man (Isle of] (++44-1624)</option>
-                              <option value="692|MH" data-phonecode="692" data-flag="MH">Marshall Islands (+692)</option>
-                              <option value="596|MQ" data-phonecode="596" data-flag="MQ">Martinique (+596)</option>
-                              <option value="222|MR" data-phonecode="222" data-flag="MR">Mauritania (+222)</option>
-                              <option value="230|MU" data-phonecode="230" data-flag="MU">Mauritius (+230)</option>
-                              <option value="262|YT" data-phonecode="262" data-flag="YT">Mayotte (+262)</option>
-                              <option value="52|MX" data-phonecode="52" data-flag="MX">Mexico (+52)</option>
-                              <option value="691|FM" data-phonecode="691" data-flag="FM">Micronesia (+691)</option>
-                              <option value="373|MD" data-phonecode="373" data-flag="MD">Moldova (+373)</option>
-                              <option value="377|MC" data-phonecode="377" data-flag="MC">Monaco (+377)</option>
-                              <option value="976|MN" data-phonecode="976" data-flag="MN">Mongolia (+976)</option>
-                              <option value="382|ME" data-phonecode="382" data-flag="ME">Montenegro (+382)</option>
-                              <option value="+1-664|MS" data-phonecode="+1-664" data-flag="MS">Montserrat (++1-664)</option>
-                              <option value="212|MA" data-phonecode="212" data-flag="MA">Morocco (+212)</option>
-                              <option value="258|MZ" data-phonecode="258" data-flag="MZ">Mozambique (+258)</option>
-                              <option value="95|MM" data-phonecode="95" data-flag="MM">Myanmar (+95)</option>
-                              <option value="264|NA" data-phonecode="264" data-flag="NA">Namibia (+264)</option>
-                              <option value="674|NR" data-phonecode="674" data-flag="NR">Nauru (+674)</option>
-                              <option value="977|NP" data-phonecode="977" data-flag="NP">Nepal (+977)</option>
-                              <option value="+599|AN" data-phonecode="+599" data-flag="AN">Netherlands Antilles (++599)</option>
-                              <option value="31|NL" data-phonecode="31" data-flag="NL">Netherlands The (+31)</option>
-                              <option value="687|NC" data-phonecode="687" data-flag="NC">New Caledonia (+687)</option>
-                              <option value="64|NZ" data-phonecode="64" data-flag="NZ">New Zealand (+64)</option>
-                              <option value="505|NI" data-phonecode="505" data-flag="NI">Nicaragua (+505)</option>
-                              <option value="227|NE" data-phonecode="227" data-flag="NE">Niger (+227)</option>
-                              <option value="234|NG" data-phonecode="234" data-flag="NG">Nigeria (+234)</option>
-                              <option value="683|NU" data-phonecode="683" data-flag="NU">Niue (+683)</option>
-                              <option value="672|NF" data-phonecode="672" data-flag="NF">Norfolk Island (+672)</option>
-                              <option value="+1-670|MP" data-phonecode="+1-670" data-flag="MP">Northern Mariana Islands (++1-670)</option>
-                              <option value="47|NO" data-phonecode="47" data-flag="NO">Norway (+47)</option>
-                              <option value="968|OM" data-phonecode="968" data-flag="OM">Oman (+968)</option>
-                              <option value="92|PK" data-phonecode="92" data-flag="PK">Pakistan (+92)</option>
-                              <option value="680|PW" data-phonecode="680" data-flag="PW">Palau (+680)</option>
-                              <option value="970|PS" data-phonecode="970" data-flag="PS">Palestinian Territory Occupied (+970)</option>
-                              <option value="507|PA" data-phonecode="507" data-flag="PA">Panama (+507)</option>
-                              <option value="675|PG" data-phonecode="675" data-flag="PG">Papua new Guinea (+675)</option>
-                              <option value="595|PY" data-phonecode="595" data-flag="PY">Paraguay (+595)</option>
-                              <option value="51|PE" data-phonecode="51" data-flag="PE">Peru (+51)</option>
-                              <option value="63|PH" data-phonecode="63" data-flag="PH">Philippines (+63)</option>
-                              <option value="870|PN" data-phonecode="870" data-flag="PN">Pitcairn Island (+870)</option>
-                              <option value="48|PL" data-phonecode="48" data-flag="PL">Poland (+48)</option>
-                              <option value="351|PT" data-phonecode="351" data-flag="PT">Portugal (+351)</option>
-                              <option value="+1-787 and 1-939|PR" data-phonecode="+1-787 and 1-939" data-flag="PR">Puerto Rico (++1-787 and 1-939)</option>
-                              <option value="974|QA" data-phonecode="974" data-flag="QA">Qatar (+974)</option>
-                              <option value="262|RE" data-phonecode="262" data-flag="RE">Reunion (+262)</option>
-                              <option value="40|RO" data-phonecode="40" data-flag="RO">Romania (+40)</option>
-                              <option value="7|RU" data-phonecode="7" data-flag="RU">Russia (+7)</option>
-                              <option value="250|RW" data-phonecode="250" data-flag="RW">Rwanda (+250)</option>
-                              <option value="290|SH" data-phonecode="290" data-flag="SH">Saint Helena (+290)</option>
-                              <option value="+1-869|KN" data-phonecode="+1-869" data-flag="KN">Saint Kitts And Nevis (++1-869)</option>
-                              <option value="+1-758|LC" data-phonecode="+1-758" data-flag="LC">Saint Lucia (++1-758)</option>
-                              <option value="508|PM" data-phonecode="508" data-flag="PM">Saint Pierre and Miquelon (+508)</option>
-                              <option value="+1-784|VC" data-phonecode="+1-784" data-flag="VC">Saint Vincent And The Grenadines (++1-784)</option>
-                              <option value="590|BL" data-phonecode="590" data-flag="BL">Saint-Barthelemy (+590)</option>
-                              <option value="590|MF" data-phonecode="590" data-flag="MF">Saint-Martin (French part] (+590)</option>
-                              <option value="685|WS" data-phonecode="685" data-flag="WS">Samoa (+685)</option>
-                              <option value="378|SM" data-phonecode="378" data-flag="SM">San Marino (+378)</option>
-                              <option value="239|ST" data-phonecode="239" data-flag="ST">Sao Tome and Principe (+239)</option>
-                              <option value="966|SA" data-phonecode="966" data-flag="SA">Saudi Arabia (+966)</option>
-                              <option value="221|SN" data-phonecode="221" data-flag="SN">Senegal (+221)</option>
-                              <option value="381|RS" data-phonecode="381" data-flag="RS">Serbia (+381)</option>
-                              <option value="248|SC" data-phonecode="248" data-flag="SC">Seychelles (+248)</option>
-                              <option value="232|SL" data-phonecode="232" data-flag="SL">Sierra Leone (+232)</option>
-                              <option value="65|SG" data-phonecode="65" data-flag="SG">Singapore (+65)</option>
-                              <option value="421|SK" data-phonecode="421" data-flag="SK">Slovakia (+421)</option>
-                              <option value="386|SI" data-phonecode="386" data-flag="SI">Slovenia (+386)</option>
-                              <option value="677|SB" data-phonecode="677" data-flag="SB">Solomon Islands (+677)</option>
-                              <option value="252|SO" data-phonecode="252" data-flag="SO">Somalia (+252)</option>
-                              <option value="27|ZA" data-phonecode="27" data-flag="ZA">South Africa (+27)</option>
-                              <option value="+995|GS" data-phonecode="+995" data-flag="GS">South Georgia (++995)</option>
-                              <option value="211|SS" data-phonecode="211" data-flag="SS">South Sudan (+211)</option>
-                              <option value="34|ES" data-phonecode="34" data-flag="ES">Spain (+34)</option>
-                              <option value="94|LK" data-phonecode="94" data-flag="LK">Sri Lanka (+94)</option>
-                              <option value="249|SD" data-phonecode="249" data-flag="SD">Sudan (+249)</option>
-                              <option value="597|SR" data-phonecode="597" data-flag="SR">Suriname (+597)</option>
-                              <option value="47|SJ" data-phonecode="47" data-flag="SJ">Svalbard And Jan Mayen Islands (+47)</option>
-                              <option value="268|SZ" data-phonecode="268" data-flag="SZ">Swaziland (+268)</option>
-                              <option value="46|SE" data-phonecode="46" data-flag="SE">Sweden (+46)</option>
-                              <option value="41|CH" data-phonecode="41" data-flag="CH">Switzerland (+41)</option>
-                              <option value="963|SY" data-phonecode="963" data-flag="SY">Syria (+963)</option>
-                              <option value="886|TW" data-phonecode="886" data-flag="TW">Taiwan (+886)</option>
-                              <option value="992|TJ" data-phonecode="992" data-flag="TJ">Tajikistan (+992)</option>
-                              <option value="255|TZ" data-phonecode="255" data-flag="TZ">Tanzania (+255)</option>
-                              <option value="66|TH" data-phonecode="66" data-flag="TH">Thailand (+66)</option>
-                              <option value="228|TG" data-phonecode="228" data-flag="TG">Togo (+228)</option>
-                              <option value="690|TK" data-phonecode="690" data-flag="TK">Tokelau (+690)</option>
-                              <option value="676|TO" data-phonecode="676" data-flag="TO">Tonga (+676)</option>
-                              <option value="+1-868|TT" data-phonecode="+1-868" data-flag="TT">Trinidad And Tobago (++1-868)</option>
-                              <option value="216|TN" data-phonecode="216" data-flag="TN">Tunisia (+216)</option>
-                              <option value="90|TR" data-phonecode="90" data-flag="TR">Turkey (+90)</option>
-                              <option value="993|TM" data-phonecode="993" data-flag="TM">Turkmenistan (+993)</option>
-                              <option value="+1-649|TC" data-phonecode="+1-649" data-flag="TC">Turks And Caicos Islands (++1-649)</option>
-                              <option value="688|TV" data-phonecode="688" data-flag="TV">Tuvalu (+688)</option>
-                              <option value="256|UG" data-phonecode="256" data-flag="UG">Uganda (+256)</option>
-                              <option value="380|UA" data-phonecode="380" data-flag="UA">Ukraine (+380)</option>
-                              <option value="971|AE" data-phonecode="971" data-flag="AE">United Arab Emirates (+971)</option>
-                              <option value="44|GB" data-phonecode="44" data-flag="GB">United Kingdom (+44)</option>
-                              <option value="1|US" data-phonecode="1" data-flag="US">United States (+1)</option>
-                              <option value="1|UM" data-phonecode="1" data-flag="UM">United States Minor Outlying Islands (+1)</option>
-                              <option value="598|UY" data-phonecode="598" data-flag="UY">Uruguay (+598)</option>
-                              <option value="998|UZ" data-phonecode="998" data-flag="UZ">Uzbekistan (+998)</option>
-                              <option value="678|VU" data-phonecode="678" data-flag="VU">Vanuatu (+678)</option>
-                              <option value="379|VA" data-phonecode="379" data-flag="VA">Vatican City State (Holy See] (+379)</option>
-                              <option value="58|VE" data-phonecode="58" data-flag="VE">Venezuela (+58)</option>
-                              <option value="84|VN" data-phonecode="84" data-flag="VN">Vietnam (+84)</option>
-                              <option value="+1-284|VG" data-phonecode="+1-284" data-flag="VG">Virgin Islands (British] (++1-284)</option>
-                              <option value="+1-340|VI" data-phonecode="+1-340" data-flag="VI">Virgin Islands (US] (++1-340)</option>
-                              <option value="681|WF" data-phonecode="681" data-flag="WF">Wallis And Futuna Islands (+681)</option>
-                              <option value="212|EH" data-phonecode="212" data-flag="EH">Western Sahara (+212)</option>
-                              <option value="967|YE" data-phonecode="967" data-flag="YE">Yemen (+967)</option>
-                              <option value="260|ZM" data-phonecode="260" data-flag="ZM">Zambia (+260)</option>
-                              <option value="263|ZW" data-phonecode="263" data-flag="ZW">Zimbabwe (+263)</option>
-                              <option value="93|AF" data-phonecode="93" data-flag="AF">Afghanistan (+93)</option>
-                          </select>
-          </div>
-          <div class="col-sm-12 col-xs-12 col-xx-12 col-md-8">
-            <input class="form-control" id="phone" name="phone" type="tel" placeholder="Celular" />
-          </div>
-        </div>
-        <span id="whatsapp_warning" style="display: none;"><strong>ATENÇÃO:</strong> para receber a mensagem no WhatsApp é necessário que os dados móveis do seu celular esteja ativo e funcionando</span>
-        <br>
-        <button class="btn btn-primary btn-action btn-access" type="submit" data-loading-text="Conectando...">Conectar        </button>
-        <br>
-        <span type="button" class="btn-link btn-back btn-go-to pull-left btn-establishment-link" data-hide="#form-sms" data-show="#content-login-facebook, .btn-back-first">
-          <i class="fa fa-angle-left"></i> Voltar        </span>
-      </form>
-    </div>
-
-    <div id="form-sms-code" class="contents" style="display: none;">
-      <form method="post" class="formAction" action="/auth/authmessagelogin">
-        <input type="hidden" name="establishment" value="sms-Nk8TvoVTai5KvcfOBZChsV8" />
-        <input type="hidden" name="authmessagetoken" value="T4fNH9zclk_7c5a1hKKQy_xYTBPZnDx32Il6Gv2YIU8vKmK9Akx0EOHxSmntRFLzFVT6rYU" />
-        <input type="hidden" name="phone_token" id="phone_token" value="" />
-        <h4 class="establishment-text-color login-code-title">Digite o código enviado por MENSAGEM</h4>
-        <div class="auth-code-wrap">
-          <input class="form-control auth-code" id="sms_code" name="code" type="number" pattern="[0-9]*" inputmode="numeric" placeholder="" maxlength="4" autocomplete="off" max="9999" data-autosubmit="1"/>
-          <div class="touch-flex">
-            <div class="touch-flex-cell"></div>
-            <div class="touch-flex-cell"></div>
-            <div class="touch-flex-cell"></div>
-            <div class="touch-flex-cell last"></div>
-          </div>
-        </div>
-        <br>
-        <button class="btn btn-primary btn-sms-login btn-action btn-access auth-code-submit" id="check_sms_code" type="submit" data-loading-text="Conectando...">
-          Entrar        </button>
-        <br>
-        <span type="button" class="btn-link btn-back btn-go-to pull-left btn-establishment-link" data-hide="#form-sms-code" data-show="#content-login-facebook, .btn-back-first">
-          <i class="fa fa-angle-left"></i> Voltar        </span>
-      </form>
-    </div>
-
-    <div id="content-form-code" class="contents" style="display: none;">
-      <form id="form-code" class="formAction" method="post" action="/auth/code">
-        <input type="hidden" name="mac" value="3A:23:98:E3:7E:EF" />
-        <input type="hidden" name="establishment" value="8167" />
-        <h4 class="establishment-text-color">Login por Código de Acesso</h4>
-
-        <div class="form-group form-group-label">
-          <label for="code" class="establishment-text-color">Código de Acesso:</label>
-          <input id="code" name="code" type="text" class="form-control" value="" />
-          <small class="description_input establishment-text-color">Solicite o código a um atendente</small>
-        </div>
-        <br>
-        <button class="btn btn-login btn-email-login btn-action btn-access" type="submit" data-loading-text="Conectando...">Conectar        </button>
-        <br>
-        <span type="button" class="btn-link btn-back btn-go-to pull-left btn-establishment-link" data-hide="#content-form-code" data-show="#content-login-facebook, .btn-back-first">
-          <i class="fa fa-angle-left"></i> Voltar        </span>
-      </form>
-    </div>
-
-    <div id="content-form-voucher" class="contents" style="display: none;">
-      <form id="form-voucher" class="formAction" method="post" action="/auth/voucher">
-        <input type="hidden" name="mac" value="3A:23:98:E3:7E:EF" />
-        <input type="hidden" name="establishment" value="yh6pqVPGObiMGTuGone1mKZqRvk" />
-        <h4 class="establishment-text-color">Login por Voucher de Acesso</h4>
-
-        <div class="form-group form-group-label">
-          <label for="voucher" class="establishment-text-color">Voucher de Acesso:</label>
-          <input id="voucher" name="voucher" type="text" class="form-control" value="" />
-          <small class="description_input establishment-text-color">Solicite o Voucher a um atendente</small>
-        </div>
-        <br>
-        <button class="btn btn-login btn-email-login btn-action btn-access" type="submit" data-loading-text="Conectando...">Conectar        </button>
-        <br>
-        <span type="button" class="btn-link btn-back btn-go-to pull-left btn-establishment-link" data-hide="#content-form-voucher" data-show="#content-login-facebook, .btn-back-first">
-          <i class="fa fa-angle-left"></i> Voltar        </span>
-      </form>
-    </div>
-
-    
-        
-  </div>
-</center>                <div id="terms" style="margin-top: 20px" data-required-message="Necessário aceitar o Termo de Uso e a Política de Privacidade para continuar.">
-    <div class="terms-wrap" style="text-align: left;width: 90%">
-              <div class="term-field" style="margin-bottom: 15px">
-          <label class="switch-toggle-wrap">
-            <div class="term-toggle">
-              <input
-                type="checkbox"
-                name="term--6"
-                id="term--6"
-                class="term-toggle"
-                data-required="1"
-                data-token="c7A-1FEDryENflAXajAH9bCAwy_x9rFLqHwIq7GDbA"
-                value="1"
-                style="display: none"
-                              />
-              <span class="switch-toggle"></span>
-            </div>
-            <span class="term-title establishment-text-color">
-              Estou de acordo com os termos de uso e a Política de Privacidade.                                            <i class="fa fa-external-link show-term" data-token="jnILoD-XLLx2AFRDFC_prmiAtvD9dNg1c2U8B17Gvg" data-lang="pt"></i>
-                          </span>
-          </label>
-        </div>
-              <div class="term-field" style="margin-bottom: 15px">
-          <label class="switch-toggle-wrap">
-            <div class="term-toggle">
-              <input
-                type="checkbox"
-                name="term--1"
-                id="term--1"
-                class="term-toggle"
-                data-required="0"
-                data-token="EtMi-JQzoX-B9-jHn0Mq3ZrFaIwBa71fQcO41ZhTPg"
-                value="1"
-                style="display: none"
-                              />
-              <span class="switch-toggle"></span>
-            </div>
-            <span class="term-title establishment-text-color">
-              Aceito receber avisos e comunicados                              <small>(Opcional) </small>
-                                        </span>
-          </label>
-        </div>
-          </div>
-  </div>
-        </div>
+      <div id="custom_fields_content">
+        <form method="post" action="/auth/progressivecustom?fwtoken=NbnGjLghNRyU6P1SOO79Cgjyr1IkhJdvedsYONQ&link=ifELGdioISUmBf0wFMkp1q_TA6uey4ABM_9XFFpfGTDoyKwGcfRv8h-G9k834ZUkzLsFxqvwyumrErgZkNJjJ6fW798YVXlryhby5qDdVcnSswYkFmzB6w4Vkej_aCvVsXsAgUwSlCbfczdhu4gkFtDwa2Mq_zN7Q8-MiR23hzrhQeFtjaMeUwFj&complete=" id='progressive-form' novalidate style="max-width: 400px;">
+          <input type="hidden" name="isprogressive" value="1"/>
+          <input type="hidden" name="link" value="ifELGdioISUmBf0wFMkp1q_TA6uey4ABM_9XFFpfGTDoyKwGcfRv8h-G9k834ZUkzLsFxqvwyumrErgZkNJjJ6fW798YVXlryhby5qDdVcnSswYkFmzB6w4Vkej_aCvVsXsAgUwSlCbfczdhu4gkFtDwa2Mq_zN7Q8-MiR23hzrhQeFtjaMeUwFj"/>
+          <input id="fwtoken" type="hidden" name="fwtoken" value="NbnGjLghNRyU6P1SOO79Cgjyr1IkhJdvedsYONQ"/>
+          <input type="hidden" name="complete" value=""/>
+          <input type="hidden" name="last_action" value=""/>
+          <div class="form-group form-group-label " style=""><label for="" class="establishment-text-color">Data Nascimento:</label><input type="text" name="progressive[birthday]" class="input-date-no-picker form-control" /><small class="muted establishment-text-color">Precisamos confirmar a sua idade</small><p class="help-block error"></p></div><div class="form-group form-group-label " style=""><label for="progressive_name" class="establishment-text-color">Nome:</label><input type="text" id="progressive_name" name="progressive[name]" class="form-control" /><small class="muted establishment-text-color">Preencha seu nome completo</small><p class="help-block error"></p></div><div class="form-group form-group-label " style=""><label for="" class="establishment-text-color">Email:</label><input type="email" name="progressive[email]" class="form-control" /><small class="muted establishment-text-color">Precisamos do seu email para validar sua conta</small><p class="help-block error"></p></div><div class="form-group form-group-label " style=""><label for="" class="establishment-text-color">RG</label><input type="text" name="progressive[rg]" class="input-dynamic-mask form-control" /><small class="muted establishment-text-color">Precisamos do RG para validar seu cadastro</small><p class="help-block error"></p></div><div class="form-group form-group-label " style=""><label for="" class="establishment-text-color">Pais:</label><select name="progressive[country_id]" class="form-control select2 country-select-progressive" onchange="getStatesByCountry(this, &#039;state_id&#039;,&#039;city&#039;);" data-doc-patterns="eyI0NCI6eyJjcGYiOnsibGFiZWwiOiJSVVQiLCJtYXNrIjoiOTkuOTk5Ljk5OS05IiwidmFsaWRhdG9yIjoiXFxXaWZpcmVcXE1vZGVsc1xcVmFsaWRhdG9yc1xcUnV0VmFsaWRhdG9yIn0sImNucGoiOnsibGFiZWwiOiJSVVQiLCJtYXNrIjoiOTkuOTk5Ljk5OS05In0sInJnIjp7ImxhYmVsIjoiT3V0cm8gRG9jdW1lbnRvIiwibWFzayI6IiJ9LCJpZSI6eyJsYWJlbCI6Ik91dHJvIERvY3VtZW50byIsIm1hc2siOiIifSwiY3VycmVuY3kiOnsibGFiZWwiOiJVU0QiLCJwcmVmaXgiOiJVJCIsInRob3VzYW5kcyI6IiIsImRlY2ltYWwiOiIuIn0sImxvY2FsX2N1cnJlbmN5Ijp7ImxhYmVsIjoiQ0xQIiwicHJlZml4IjoiJCIsInRob3VzYW5kcyI6IiIsImRlY2ltYWwiOiIuIn0sImRlZmF1bHRfbGFuZ3VhZ2UiOiJlcyJ9LCIzOSI6eyJjcGYiOnsibGFiZWwiOiJOXHUwMGZhbWVybyBTb2NpYWwiLCJtYXNrIjoiOTk5OTk5OTk5In0sImNucGoiOnsibGFiZWwiOiJCdXNpbmVzcyBOdW1iZXIiLCJtYXNrIjoiIn0sInJnIjp7ImxhYmVsIjoiT3V0cm8gRG9jdW1lbnRvIiwibWFzayI6IiJ9LCJpZSI6eyJsYWJlbCI6Ik91dHJvIERvY3VtZW50byIsIm1hc2siOiIifSwiY3VycmVuY3kiOnsibGFiZWwiOiJDQUQiLCJwcmVmaXgiOiJVJCIsInRob3VzYW5kcyI6IiIsImRlY2ltYWwiOiIuIn0sImxvY2FsX2N1cnJlbmN5Ijp7ImxhYmVsIjoiQ0FEIiwicHJlZml4IjoiVSQiLCJ0aG91c2FuZHMiOiIiLCJkZWNpbWFsIjoiLiJ9LCJkZWZhdWx0X2xhbmd1YWdlIjoiZW4ifSwiNDgiOnsiY3BmIjp7ImxhYmVsIjoiQ1x1MDBlOWR1bGEgZGUgQ2lkYWRhbmlhIiwibWFzayI6IiJ9LCJjbnBqIjp7ImxhYmVsIjoiTklUIiwibWFzayI6IiJ9LCJyZyI6eyJsYWJlbCI6Ik91dHJvIERvY3VtZW50byIsIm1hc2siOiIifSwiaWUiOnsibGFiZWwiOiJPdXRybyBEb2N1bWVudG8iLCJtYXNrIjoiIn0sImN1cnJlbmN5Ijp7ImxhYmVsIjoiVVNEIiwicHJlZml4IjoiVSQiLCJ0aG91c2FuZHMiOiIiLCJkZWNpbWFsIjoiLiJ9LCJsb2NhbF9jdXJyZW5jeSI6eyJsYWJlbCI6IkNPUCIsInByZWZpeCI6IiQiLCJ0aG91c2FuZHMiOiIuIiwiZGVjaW1hbCI6IiwifSwiZGVmYXVsdF9sYW5ndWFnZSI6ImVzIn0sIjE0MiI6eyJjcGYiOnsibGFiZWwiOiJJRkUiLCJtYXNrIjoiIn0sImNucGoiOnsibGFiZWwiOiJSRkMiLCJtYXNrIjoiIn0sInJnIjp7ImxhYmVsIjoiT3V0cm8gRG9jdW1lbnRvIiwibWFzayI6IiJ9LCJpZSI6eyJsYWJlbCI6Ik91dHJvIERvY3VtZW50byIsIm1hc2siOiIifSwiY3VycmVuY3kiOnsibGFiZWwiOiJVU0QiLCJwcmVmaXgiOiJVJCIsInRob3VzYW5kcyI6IiIsImRlY2ltYWwiOiIuIn0sImxvY2FsX2N1cnJlbmN5Ijp7ImxhYmVsIjoiTUVYIiwicHJlZml4IjoiJCIsInRob3VzYW5kcyI6IiIsImRlY2ltYWwiOiIuIn0sImRlZmF1bHRfbGFuZ3VhZ2UiOiJlcyJ9LCI5NyI6eyJjcGYiOnsibGFiZWwiOiJDXHUwMGU5ZHVsYSBkZSBJZGVudGlkYWRlIiwibWFzayI6IiJ9LCJjbnBqIjp7ImxhYmVsIjoiUlROIiwibWFzayI6IiJ9LCJyZyI6eyJsYWJlbCI6Ik91dHJvIERvY3VtZW50byIsIm1hc2siOiIifSwiaWUiOnsibGFiZWwiOiJPdXRybyBEb2N1bWVudG8iLCJtYXNrIjoiIn0sImN1cnJlbmN5Ijp7ImxhYmVsIjoiVVNEIiwicHJlZml4IjoiVSQiLCJ0aG91c2FuZHMiOiIiLCJkZWNpbWFsIjoiLiJ9LCJsb2NhbF9jdXJyZW5jeSI6eyJsYWJlbCI6IkhOTCIsInByZWZpeCI6IkwiLCJ0aG91c2FuZHMiOiIiLCJkZWNpbWFsIjoiLiJ9LCJkZWZhdWx0X2xhbmd1YWdlIjoiZXMifSwiMTcwIjp7ImNwZiI6eyJsYWJlbCI6IkNcdTAwZTlkdWxhIGRlIENpZGFkYW5pYSIsIm1hc2siOiIifSwiY25waiI6eyJsYWJlbCI6Ik5JVCIsIm1hc2siOiIifSwicmciOnsibGFiZWwiOiJPdXRybyBEb2N1bWVudG8iLCJtYXNrIjoiIn0sImllIjp7ImxhYmVsIjoiT3V0cm8gRG9jdW1lbnRvIiwibWFzayI6IiJ9LCJjdXJyZW5jeSI6eyJsYWJlbCI6IlVTRCIsInByZWZpeCI6IlUkIiwidGhvdXNhbmRzIjoiIiwiZGVjaW1hbCI6Ii4ifSwibG9jYWxfY3VycmVuY3kiOnsibGFiZWwiOiJVU0QiLCJwcmVmaXgiOiIkIiwidGhvdXNhbmRzIjoiIiwiZGVjaW1hbCI6Ii4ifSwiZGVmYXVsdF9sYW5ndWFnZSI6ImVzIn0sIjE1OSI6eyJjcGYiOnsibGFiZWwiOiJDXHUwMGU5ZHVsYSIsIm1hc2siOiIifSwiY25waiI6eyJsYWJlbCI6IlJVQyIsIm1hc2siOiIifSwicmciOnsibGFiZWwiOiJPdXRybyBEb2N1bWVudG8iLCJtYXNrIjoiIn0sImllIjp7ImxhYmVsIjoiT3V0cm8gRG9jdW1lbnRvIiwibWFzayI6IiJ9LCJjdXJyZW5jeSI6eyJsYWJlbCI6IlVTRCIsInByZWZpeCI6IlUkIiwidGhvdXNhbmRzIjoiIiwiZGVjaW1hbCI6Ii4ifSwibG9jYWxfY3VycmVuY3kiOnsibGFiZWwiOiJOSU8iLCJwcmVmaXgiOiJDJCIsInRob3VzYW5kcyI6IiIsImRlY2ltYWwiOiIuIn0sImRlZmF1bHRfbGFuZ3VhZ2UiOiJlcyJ9LCI3Ijp7ImNwZiI6eyJsYWJlbCI6IkJpbGhldGUgZGUgSWRlbnRpZGFkZSIsIm1hc2siOiIifSwiY25waiI6eyJsYWJlbCI6Ik5JRiIsIm1hc2siOiIifSwicmciOnsibGFiZWwiOiJPdXRybyBEb2N1bWVudG8iLCJtYXNrIjoiIn0sImllIjp7ImxhYmVsIjoiT3V0cm8gRG9jdW1lbnRvIiwibWFzayI6IiJ9LCJjdXJyZW5jeSI6eyJsYWJlbCI6IlVTRCIsInByZWZpeCI6IlUkIiwidGhvdXNhbmRzIjoiIiwiZGVjaW1hbCI6Ii4ifSwibG9jYWxfY3VycmVuY3kiOnsibGFiZWwiOiJBT0EiLCJwcmVmaXgiOiJBT0EiLCJ0aG91c2FuZHMiOiIiLCJkZWNpbWFsIjoiLCJ9LCJkZWZhdWx0X2xhbmd1YWdlIjoicHQifSwiNTMiOnsiY3BmIjp7ImxhYmVsIjoiRGltZXgiLCJtYXNrIjoiOS05OTktOTk5OTk5In0sImNucGoiOnsibGFiZWwiOiJDXHUwMGU5ZHVsYSBKdXJcdTAwZWRkaWNhIiwibWFzayI6IiJ9LCJyZyI6eyJsYWJlbCI6Ik91dHJvIERvY3VtZW50byIsIm1hc2siOiIifSwiaWUiOnsibGFiZWwiOiJPdXRybyBEb2N1bWVudG8iLCJtYXNrIjoiIn0sImN1cnJlbmN5Ijp7ImxhYmVsIjoiVVNEIiwicHJlZml4IjoiVSQiLCJ0aG91c2FuZHMiOiIiLCJkZWNpbWFsIjoiLiJ9LCJsb2NhbF9jdXJyZW5jeSI6eyJsYWJlbCI6IkNSQyIsInByZWZpeCI6Ilx1MjBhMSIsInRob3VzYW5kcyI6IiIsImRlY2ltYWwiOiIuIn0sImRlZmF1bHRfbGFuZ3VhZ2UiOiJlcyJ9LCIxIjp7ImNwZiI6eyJsYWJlbCI6IkNQRiIsIm1hc2siOiI5OTkuOTk5Ljk5OS05OSIsInZhbGlkYXRvciI6IlxcV2lmaXJlXFxNb2RlbHNcXFZhbGlkYXRvcnNcXENwZlZhbGlkYXRvciJ9LCJjbnBqIjp7ImxhYmVsIjoiQ05QSiIsIm1hc2siOiI5OS45OTkuOTk5XC85OTk5LTk5In0sInJnIjp7ImxhYmVsIjoiUkciLCJtYXNrIjoiIn0sImllIjp7ImxhYmVsIjoiSW5zY3JpXHUwMGU3XHUwMGUzbyBFc3RhZHVhbCIsIm1hc2siOiIifSwiY3VycmVuY3kiOnsibGFiZWwiOiJCUkwiLCJwcmVmaXgiOiJSJCIsInRob3VzYW5kcyI6Ii4iLCJkZWNpbWFsIjoiLCJ9LCJsb2NhbF9jdXJyZW5jeSI6eyJsYWJlbCI6IkJSTCIsInByZWZpeCI6IlIkIiwidGhvdXNhbmRzIjoiLiIsImRlY2ltYWwiOiIsIn0sImRlZmF1bHRfbGFuZ3VhZ2UiOiJwdCJ9fQ==" data-doc-br-default-label="CPF" data-doc-default-label="Documento">
+	<option value="">Selecione</option>
+	<option value="1">Brasil</option>
+	<option value="2">Aland Islands</option>
+	<option value="3">Albania</option>
+	<option value="4">Algeria</option>
+	<option value="5">American Samoa</option>
+	<option value="6">Andorra</option>
+	<option value="7">Angola</option>
+	<option value="8">Anguilla</option>
+	<option value="9">Antarctica</option>
+	<option value="10">Antigua And Barbuda</option>
+	<option value="11">Argentina</option>
+	<option value="12">Armenia</option>
+	<option value="13">Aruba</option>
+	<option value="14">Australia</option>
+	<option value="15">Austria</option>
+	<option value="16">Azerbaijan</option>
+	<option value="17">Bahamas The</option>
+	<option value="18">Bahrain</option>
+	<option value="19">Bangladesh</option>
+	<option value="20">Barbados</option>
+	<option value="21">Belarus</option>
+	<option value="22">Belgium</option>
+	<option value="23">Belize</option>
+	<option value="24">Benin</option>
+	<option value="25">Bermuda</option>
+	<option value="26">Bhutan</option>
+	<option value="27">Bolivia</option>
+	<option value="28">Bosnia and Herzegovina</option>
+	<option value="29">Botswana</option>
+	<option value="30">Bouvet Island</option>
+	<option value="32">British Indian Ocean Territory</option>
+	<option value="33">Brunei</option>
+	<option value="34">Bulgaria</option>
+	<option value="35">Burkina Faso</option>
+	<option value="36">Burundi</option>
+	<option value="37">Cambodia</option>
+	<option value="38">Cameroon</option>
+	<option value="39">Canada</option>
+	<option value="40">Cape Verde</option>
+	<option value="41">Cayman Islands</option>
+	<option value="42">Central African Republic</option>
+	<option value="43">Chad</option>
+	<option value="44">Chile</option>
+	<option value="45">China</option>
+	<option value="46">Christmas Island</option>
+	<option value="47">Cocos (Keeling) Islands</option>
+	<option value="48">Colombia</option>
+	<option value="49">Comoros</option>
+	<option value="50">Congo</option>
+	<option value="51">Congo The Democratic Republic Of The</option>
+	<option value="52">Cook Islands</option>
+	<option value="53">Costa Rica</option>
+	<option value="54">Cote D&#039;Ivoire (Ivory Coast)</option>
+	<option value="55">Croatia (Hrvatska)</option>
+	<option value="56">Cuba</option>
+	<option value="57">Cyprus</option>
+	<option value="58">Czech Republic</option>
+	<option value="59">Denmark</option>
+	<option value="60">Djibouti</option>
+	<option value="61">Dominica</option>
+	<option value="62">Dominican Republic</option>
+	<option value="63">East Timor</option>
+	<option value="64">Ecuador</option>
+	<option value="65">Egypt</option>
+	<option value="66">El Salvador</option>
+	<option value="67">Equatorial Guinea</option>
+	<option value="68">Eritrea</option>
+	<option value="69">Estonia</option>
+	<option value="70">Ethiopia</option>
+	<option value="71">Falkland Islands</option>
+	<option value="72">Faroe Islands</option>
+	<option value="73">Fiji Islands</option>
+	<option value="74">Finland</option>
+	<option value="75">France</option>
+	<option value="76">French Guiana</option>
+	<option value="77">French Polynesia</option>
+	<option value="78">French Southern Territories</option>
+	<option value="79">Gabon</option>
+	<option value="80">Gambia The</option>
+	<option value="81">Georgia</option>
+	<option value="82">Germany</option>
+	<option value="83">Ghana</option>
+	<option value="84">Gibraltar</option>
+	<option value="85">Greece</option>
+	<option value="86">Greenland</option>
+	<option value="87">Grenada</option>
+	<option value="88">Guadeloupe</option>
+	<option value="89">Guam</option>
+	<option value="90">Guatemala</option>
+	<option value="91">Guernsey and Alderney</option>
+	<option value="92">Guinea</option>
+	<option value="93">Guinea-Bissau</option>
+	<option value="94">Guyana</option>
+	<option value="95">Haiti</option>
+	<option value="96">Heard and McDonald Islands</option>
+	<option value="97">Honduras</option>
+	<option value="98">Hong Kong S.A.R.</option>
+	<option value="99">Hungary</option>
+	<option value="100">Iceland</option>
+	<option value="101">India</option>
+	<option value="102">Indonesia</option>
+	<option value="103">Iran</option>
+	<option value="104">Iraq</option>
+	<option value="105">Ireland</option>
+	<option value="106">Israel</option>
+	<option value="107">Italy</option>
+	<option value="108">Jamaica</option>
+	<option value="109">Japan</option>
+	<option value="110">Jersey</option>
+	<option value="111">Jordan</option>
+	<option value="112">Kazakhstan</option>
+	<option value="113">Kenya</option>
+	<option value="114">Kiribati</option>
+	<option value="115">Korea North
+</option>
+	<option value="116">Korea South</option>
+	<option value="117">Kuwait</option>
+	<option value="118">Kyrgyzstan</option>
+	<option value="119">Laos</option>
+	<option value="120">Latvia</option>
+	<option value="121">Lebanon</option>
+	<option value="122">Lesotho</option>
+	<option value="123">Liberia</option>
+	<option value="124">Libya</option>
+	<option value="125">Liechtenstein</option>
+	<option value="126">Lithuania</option>
+	<option value="127">Luxembourg</option>
+	<option value="128">Macau S.A.R.</option>
+	<option value="129">Macedonia</option>
+	<option value="130">Madagascar</option>
+	<option value="131">Malawi</option>
+	<option value="132">Malaysia</option>
+	<option value="133">Maldives</option>
+	<option value="134">Mali</option>
+	<option value="135">Malta</option>
+	<option value="136">Man (Isle of)</option>
+	<option value="137">Marshall Islands</option>
+	<option value="138">Martinique</option>
+	<option value="139">Mauritania</option>
+	<option value="140">Mauritius</option>
+	<option value="141">Mayotte</option>
+	<option value="142">Mexico</option>
+	<option value="143">Micronesia</option>
+	<option value="144">Moldova</option>
+	<option value="145">Monaco</option>
+	<option value="146">Mongolia</option>
+	<option value="147">Montenegro</option>
+	<option value="148">Montserrat</option>
+	<option value="149">Morocco</option>
+	<option value="150">Mozambique</option>
+	<option value="151">Myanmar</option>
+	<option value="152">Namibia</option>
+	<option value="153">Nauru</option>
+	<option value="154">Nepal</option>
+	<option value="155">Netherlands Antilles</option>
+	<option value="156">Netherlands The</option>
+	<option value="157">New Caledonia</option>
+	<option value="158">New Zealand</option>
+	<option value="159">Nicaragua</option>
+	<option value="160">Niger</option>
+	<option value="161">Nigeria</option>
+	<option value="162">Niue</option>
+	<option value="163">Norfolk Island</option>
+	<option value="164">Northern Mariana Islands</option>
+	<option value="165">Norway</option>
+	<option value="166">Oman</option>
+	<option value="167">Pakistan</option>
+	<option value="168">Palau</option>
+	<option value="169">Palestinian Territory Occupied</option>
+	<option value="170">Panama</option>
+	<option value="171">Papua new Guinea</option>
+	<option value="172">Paraguay</option>
+	<option value="173">Peru</option>
+	<option value="174">Philippines</option>
+	<option value="175">Pitcairn Island</option>
+	<option value="176">Poland</option>
+	<option value="177">Portugal</option>
+	<option value="178">Puerto Rico</option>
+	<option value="179">Qatar</option>
+	<option value="180">Reunion</option>
+	<option value="181">Romania</option>
+	<option value="182">Russia</option>
+	<option value="183">Rwanda</option>
+	<option value="184">Saint Helena</option>
+	<option value="185">Saint Kitts And Nevis</option>
+	<option value="186">Saint Lucia</option>
+	<option value="187">Saint Pierre and Miquelon</option>
+	<option value="188">Saint Vincent And The Grenadines</option>
+	<option value="189">Saint-Barthelemy</option>
+	<option value="190">Saint-Martin (French part)</option>
+	<option value="191">Samoa</option>
+	<option value="192">San Marino</option>
+	<option value="193">Sao Tome and Principe</option>
+	<option value="194">Saudi Arabia</option>
+	<option value="195">Senegal</option>
+	<option value="196">Serbia</option>
+	<option value="197">Seychelles</option>
+	<option value="198">Sierra Leone</option>
+	<option value="199">Singapore</option>
+	<option value="200">Slovakia</option>
+	<option value="201">Slovenia</option>
+	<option value="202">Solomon Islands</option>
+	<option value="203">Somalia</option>
+	<option value="204">South Africa</option>
+	<option value="205">South Georgia</option>
+	<option value="206">South Sudan</option>
+	<option value="207">Spain</option>
+	<option value="208">Sri Lanka</option>
+	<option value="209">Sudan</option>
+	<option value="210">Suriname</option>
+	<option value="211">Svalbard And Jan Mayen Islands</option>
+	<option value="212">Swaziland</option>
+	<option value="213">Sweden</option>
+	<option value="214">Switzerland</option>
+	<option value="215">Syria</option>
+	<option value="216">Taiwan</option>
+	<option value="217">Tajikistan</option>
+	<option value="218">Tanzania</option>
+	<option value="219">Thailand</option>
+	<option value="220">Togo</option>
+	<option value="221">Tokelau</option>
+	<option value="222">Tonga</option>
+	<option value="223">Trinidad And Tobago</option>
+	<option value="224">Tunisia</option>
+	<option value="225">Turkey</option>
+	<option value="226">Turkmenistan</option>
+	<option value="227">Turks And Caicos Islands</option>
+	<option value="228">Tuvalu</option>
+	<option value="229">Uganda</option>
+	<option value="230">Ukraine</option>
+	<option value="231">United Arab Emirates</option>
+	<option value="232">United Kingdom</option>
+	<option value="233">United States</option>
+	<option value="234">United States Minor Outlying Islands</option>
+	<option value="235">Uruguay</option>
+	<option value="236">Uzbekistan</option>
+	<option value="237">Vanuatu</option>
+	<option value="238">Vatican City State (Holy See)</option>
+	<option value="239">Venezuela</option>
+	<option value="240">Vietnam</option>
+	<option value="241">Virgin Islands (British)</option>
+	<option value="242">Virgin Islands (US)</option>
+	<option value="243">Wallis And Futuna Islands</option>
+	<option value="244">Western Sahara</option>
+	<option value="245">Yemen</option>
+	<option value="246">Zambia</option>
+	<option value="247">Zimbabwe</option>
+	<option value="248">Afghanistan</option>
+</select><small class="muted establishment-text-color">Confirme sua cidade</small><p class="help-block error"></p></div><div class="form-group form-group-label " style=""><label for="state_id" class="establishment-text-color">Estado:</label><select id="state_id" name="progressive[state_id]" class="form-control" onchange="getCitiesByState(this, &#039;city&#039;);">
+	<option selected="selected" value="">Selecione o pais</option>
+</select><small class="muted establishment-text-color">Confirme sua cidade</small><p class="help-block error"></p></div><div class="form-group form-group-label " style=""><label for="city" class="establishment-text-color">Cidade:</label><select id="city" name="progressive[city]" class="form-control select2">
+	<option value="">Selecione</option>
+	<option selected="selected" value="">Selecione o pais</option>
+</select><small class="muted establishment-text-color">Confirme sua cidade</small><p class="help-block error"></p></div>          <br>
+                      <button type="submit" class="btn btn-success btn-establishment" style="color: white; width: 210px;">Salvar e Entrar</button>
+                  </form>
       </div>
-    </center>
+      <br>
+                                    <a href="/users/logout/?fwtoken=NbnGjLghNRyU6P1SOO79Cgjyr1IkhJdvedsYONQ" class="btn btn-secondary btn-establishment-outline">Acessar com outra conta</a><br/><br/>
+                            </div>
   </div>
+</center></div>
 
-<div class='modal' id="terms_of_use_content" style="display: none;">
-  <div class='modal-dialog'>
-    <div class='modal-content'>
-      <div class='modal-heading'>
-        <a class="modal-close" data-dismiss="modal">×</a>
-        <h2 class='modal-title' style="width: 100%;text-align: center;">
-          POLÍTICA DE PRIVACIDADE WIFIRE        </h2>
-      </div>
-      <div class='modal-content2'>
-        <div class='modal-inner'>
-          <style type="text/css">
-  #privacy {
-    text-align: justify;
-  }
-  #privacy h3 {
-    margin: 10px 0px;
-    font-weight: bold;
-  }
-  #privacy h4 {
-  }
-</style>
-<div id="privacy">
-  O aplicativo WIFIRE  é mantido e operado por WIFIRE SERVIÇOS LTDA.<br>
-  A POLÍTICA DE PRIVACIDADE deste software respeita as Leis e Normas do ordenamento jurídico brasileiro, estando em pleno alinhamento com a Lei 12.965/14 (Marco Civil da Internet) e seu Decreto Regulamentador nº 8.771/16.<br><br>
-  O intuito da definição da política de privacidade deste software é garantir a segurança da privacidade de nossos usuários, descrevendo nossa política de proteção de dados.<br><br>
-  Solicitamos que leia com atenção a POLÍTICA DE PRIVACIDADE E OS TERMOS DE USO do WIFIRE.<br><br>
-  Ressaltamos o quão importante é a TUTELA DA PRIVACIDADE, ficando demonstrados aqui como serão utilizados, processados e tratados os seus dados, buscando com isso trazer uma melhor experiência de uso de nossos produtos, com maior comodidade, praticidade e usabilidade.<br><br>
-  Ressaltamos também que, ao concordar com a presente política de privacidade, ficam informado e caracterizado o consentimento livre e expresso do usuário, concordando com toda nossa política para a coleta, armazenamento, tratamento e compartilhamento de dados.<br><br>
-  Nós coletamos e utilizamos alguns dados pessoais que pertencem àqueles que utilizam nossos aplicativos. Ao fazê-lo, agimos na qualidade de OPERADOR desses dados e estamos sujeitos às disposições da Lei Federal n. 13.709/2018 (Lei Geral de Proteção de Dados Pessoais  LGPD).<br>
-  Nós cuidamos da proteção de seus dados pessoais e, por isso, disponibilizamos esta política de privacidade, que contém informações importantes sobre:
-  <ul>
-    <li>Quem deve utilizar nosso aplicativo</li>
-    <li>Quais dados coletamos e o que fazemos com eles;</li>
-    <li>Seus direitos em relação aos seus dados pessoais; e</li>
-    <li>Como entrar em contato conosco.
-  </ul>
-  <h3>1. Quem deve utilizar nosso aplicativo</h3>
-  Nosso aplicativo somente deve ser utilizado por pessoas que tenham, pelo menos, 12 anos (completos) de idade, sendo que a utilização por pessoa com menos de 18 (dezoito) anos somente será possível mediante o consentimento de pelo menos um de seus pais ou responsável.<br><br>
-  <h3>2. Dados que coletamos e motivos da coleta</h3>
-  <h4>1. Dados pessoais fornecidos expressamente pelo usuário</h4>
-  Para poder utilizar os serviços do WIFIRE, o USUÁRIO deverá realizar o cadastro prévio, inserindo informações corretas e verdadeiras com relação ao seu nome, data de nascimento, endereço eletrônico (email), cidade e telefone entre outros dados que podem variar de estabelecimento para estabelecimento a critério do proprietário. O USUÁRIO também poderá realizar seu cadastro por meio de sua conta do Facebook ou outras redes sociais, sendo importados as informações necessárias de seu perfil e conta informados.
-  A coleta destes dados ocorre nos seguintes momentos:
-  <ul>
-    <li>Quando o usuário faz seu cadastro na plataforma WiFire</li>
-    <li>Quando navega na internet através da solução WiFire</li>
-    <li>Quando interage respondendo enquetes ou pesquisas de satisfação enviadas pela plataforma WiFire</li>
-  </ul>
-  Os dados fornecidos por nossos usuários são coletados com as seguintes finalidades:
-  <ul>
-    <li>Para que o usuário possa interagir na plataforma com estabelecimentos comerciais.</li>
-    <li>Para que possa realizar compras em nossas plataformas de forma segura.</li>
-    <li>Para que possamos enviar ofertas aos usuários.</li>
-    <li>Para que possamos enviar pesquisas de satisfação aos usuários com o objetivo de melhorar a qualidade dos nossos serviços e dos nossos clientes.</li>
-  </ul>
-  Além disso, os dados pessoais poderão ser utilizados para o fornecimento de serviços que tenham sido solicitados, para a consecução de qualquer contrato ou para a adoção de quaisquer providências que tenham sido solicitadas, com o intuito de auxiliar as operações diárias e no desempenho da ferramenta.<br><br>
-  Informamos também que, os dados coletados <strong>serão tratados com a finalidade de análise estatística, geração de BI, relatórios, fluxo de pessoas e usuários em cada estabelecimento</strong>, visando o desenvolvimento de novas ferramentas e informações relevantes para a otimização e melhora dos serviços oferecidos, assim como geração de informações mercadológicas.
-  <h4>2. Dados pessoais obtidos de outras formas</h4>
-  Nós coletamos os seguintes dados pessoais de nossos usuários:
-  <ul>
-    <li>Endereço de IP, MAC</li>
-    <li>Dados de Geolocalização</li>
-    <li>Dados de navegação como sites visitados</li>
-  </ul>
-  A coleta destes dados ocorre nos seguintes momentos:<br><br>
-  Quando o usuário faz login e logout do sistema.<br>
-  Quando o usuário navega na internet através de um hotspot WiFire<br><br>
-  Estes dados são coletados com as seguintes finalidades:<br>
-  Personalizar a experiência do Usuário<br>
-  Cumprir determinações legais da Lei do Marco Civil da Internet e LGPD<br>
-  <h4>3. Dados sensíveis</h4>
-  <strong>Não</strong> serão coletados dados sensíveis de nossos usuários, assim entendidos aqueles definidos nos arts. 11 e seguintes da Lei de Proteção de Dados Pessoais. Assim, não haverá coleta de dados sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural.
-  <h4>4. Coleta de dados não previstos expressamente</h4>
-  Como o <strong>WiFire</strong> é um aplicativo personalizável, eventualmente, a critério de nossos clientes, outros tipos de dados não previstos expressamente nesta Política de Privacidade poderão ser coletados, desde que sejam fornecidos com o consentimento do usuário, ou, ainda, que a coleta seja permitida com fundamento em outra base legal prevista em lei.<br><br>
-  Em qualquer caso, a coleta de dados e as atividades de tratamento dela decorrentes serão informadas aos usuários do aplicativo.<br><br>
-  <h3>3. Compartilhamento de dados pessoais com terceiros</h3>
-  Nós não compartilhamos seus dados pessoais com terceiros. Apesar disso, é possível que o façamos para cumprir alguma determinação legal ou regulatória, ou, ainda, para cumprir alguma ordem expedida por autoridade pública.<br><br>
-  <h3>4. Por quanto tempo seus dados pessoais serão armazenados</h3>
-  Os dados pessoais coletados pelo aplicativo são armazenados e utilizados por período de tempo que corresponda ao necessário para atingir as finalidades elencadas neste documento e que considere os direitos de seus titulares, os direitos do controlador do aplicativo e as disposições legais ou regulatórias aplicáveis.
-  Uma vez expirados os períodos de armazenamento dos dados pessoais, eles são removidos de nossas bases de dados ou anonimizados, salvo nos casos em que houver a possibilidade ou a necessidade de armazenamento em virtude de disposição legal ou regulatória.
 
-  <h3>5. Bases legais para o tratamento de dados pessoais</h3>
-  Uma base legal para o tratamento de dados pessoais nada mais é que um fundamento jurídico, previsto em lei, que o justifica. Assim, cada operação de tratamento de dados pessoais precisa ter uma base legal a ela correspondente.<br>
-  Nós tratamos os dados pessoais de nossos usuários nas seguintes hipóteses:
-  <ul>
-    <li>mediante o consentimento do titular dos dados pessoais</li>
-    <li>para o cumprimento de obrigação legal ou regulatória pelo controlador</li>
-    <li>para o exercício regular de direitos em processo judicial, administrativo ou arbitral</li>
-    <li>para a execução de contrato ou de procedimentos preliminares relacionados a contrato do qual seja parte o titular, a pedido do titular dos dados pessoais</li>
-    <li>quando necessário para atender aos interesses legítimos do controlador ou de terceiro</li>
-  </ul>
-  <h4>1. Consentimento</h4>
-  Determinadas operações de tratamento de dados pessoais realizadas em nosso aplicativo dependerão da prévia concordância do usuário, que deverá manifestála de forma livre, informada e inequívoca.<br><br>
-  O usuário poderá revogar seu consentimento a qualquer momento, sendo que, não havendo hipótese legal que permita ou que demande o armazenamento dos dados, os dados fornecidos mediante consentimento serão excluídos.<br><br>
-  Além disso, se desejar, o usuário poderá não concordar com alguma operação de tratamento de dados pessoais baseada no consentimento. Nestes casos, porém, é possível que não possa utilizar alguma funcionalidade do aplicativo que dependa daquela operação. As consequências da falta de consentimento para uma atividade específica são informadas previamente ao tratamento.<br><br>
-  <h4>2. Cumprimento de obrigação legal ou regulatória pelo controlador</h4>
-  Algumas operações de tratamento de dados pessoais, sobretudo o armazenamento de dados, serão realizadas para que possamos cumprir obrigações previstas em lei ou em outras disposições normativas aplicáveis às nossas atividades.
-  <h4>3. Execução de contrato</h4>
-  Para a execução de contrato de compra e venda ou de prestação de serviços eventualmente firmado entre o aplicativo e o usuário, poderão ser coletados e armazenados outros dados relacionados ou necessários a sua execução, incluindo o teor de eventuais comunicações tidas com o usuário.
-  <h4>4. Legítimo interesse</h4>
-  Para determinadas operações de tratamento de dados pessoais, nos baseamos exclusivamente em nosso interesse legítimo. Para saber mais sobre em quais casos, especificamente, nos valemos desta base legal, ou para obter mais informações sobre os testes que fazemos para termos certeza de que podemos utilizála, entre em contato com nosso Encarregado de Proteção de Dados Pessoais por algum dos canais informados nesta Política de Privacidade, na seção "Como entrar em contato conosco".
 
-  <h3>6. Direitos do usuário</h3>
-  O usuário do aplicativo possui os seguintes direitos, conferidos pela Lei de Proteção de Dados Pessoais:
-  <ul>
-    <li>confirmação da existência de tratamento;</li>
-    <li>correção de dados incompletos, inexatos ou desatualizados;</li>
-    <li>anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade com o disposto na lei;</li>
-    <li>portabilidade dos dados a outro fornecedor de serviço ou produto, mediante requisição expressa, de acordo com a regulamentação da autoridade nacional, observados os segredos comercial e industrial;</li>
-    <li>eliminação dos dados pessoais tratados com o consentimento do titular, exceto nos casos previstos em lei;</li>
-    <li>informação das entidades públicas e privadas com as quais o controlador realizou uso compartilhado de dados;</li>
-    <li>informação sobre a possibilidade de não fornecer consentimento e sobre as consequências da negativa;</li>
-    <li>revogação do consentimento.</li>
-  </ul>
-  É importante destacar que, nos termos da LGPD, não existe um direito de eliminação de dados tratados com fundamento em bases legais distintas do consentimento, a menos que os dados seja desnecessários, excessivos ou tratados em desconformidade com o previsto na lei.
-  <h4>1. Como o titular pode exercer seus direitos</h4>
-  Os titulares de dados pessoais tratados por nós poderão exercer seus direitos por meio do painel de gestão do perfil do usuário disponibilizado no seguinte caminho: <a href="http://user.wifire.me/" target="_blank">http://user.wifire.me/</a>. Alternativamente, se desejar, o titular poderá enviar um email ou uma correspondência ao nosso Encarregado de Proteção de Dados Pessoais. As informações necessárias para isso estão na seção "Como entrar em contato conosco" desta Política de Privacidade.<br><br>
-  Os titulares de dados pessoais tratados por nós poderão exercer seus direitos a partir do envio de mensagem ao nosso Encarregado de Proteção de Dados Pessoais, seja por email ou por correspondência. As informações necessárias para isso estão na seção "Como entrar em contato conosco" desta Política de Privacidade.<br><br>
-  Para garantir que o usuário que pretende exercer seus direitos é, de fato, o titular dos dados pessoais objeto da requisição, poderemos solicitar documentos ou outras informações que possam auxiliar em sua correta identificação, a fim de resguardar nossos direitos e os direitos de terceiros. Isto somente será feito, porém, se for absolutamente necessário, e o requerente receberá todas as informações relacionadas.<br><br>
-
-  <h3>7. Medidas de segurança no tratamento de dados pessoais</h3>
-
-  Empregamos medidas técnicas e organizativas aptas a proteger os dados pessoais de acessos não autorizados e de situações de destruição, perda, extravio ou alteração desses dados.<br><br>
-  As medidas que utilizamos levam em consideração a natureza dos dados, o contexto e a finalidade do tratamento, os riscos que uma eventual violação geraria para os direitos e liberdades do usuário, e os padrões atualmente empregados no mercado por empresas semelhantes à nossa.<br><br>
-  Entre as medidas de segurança adotadas por nós, destacamos as seguintes:
-  <ul>
-    <li>Armazenamento de senhas utilizando hashes criptográficos</li>
-    <li>Restrição de acesso a banco de dados</li>
-    <li>Monitoramento de acesso a dados de usuários</li>
-    <li>Hospedagem em nuvem em fornecedores com padrão de segurança internacional.</li>
-  </ul>
-  Ainda que adote tudo o que está ao seu alcance para evitar incidentes de segurança, é possível que ocorra algum problema motivado exclusivamente por um terceiro  como em caso de ataques de hackers ou crackers ou, ainda, em caso de culpa exclusiva do usuário, que ocorre, por exemplo, quando ele mesmo transfere seus dados a terceiro. Assim, embora sejamos, em geral, responsáveis pelos dados pessoais que tratamos, nos eximimos de responsabilidade caso ocorra uma situação excepcional como essas, sobre as quais não temos nenhum tipo de controle.<br><br>
-  De qualquer forma, caso ocorra qualquer tipo de incidente de segurança que possa gerar risco ou dano relevante para qualquer de nossos usuários, comunicaremos os afetados e a Autoridade Nacional de Proteção de Dados acerca do ocorrido, em conformidade com o disposto na Lei Geral de Proteção de Dados.<br><br>
-
-  <h3>8. Sobre o uso de COOKIES</h3>
-  A utilização de cookies em nosso site tem a finalidade única e exclusiva de estabelecer estatísticas de acesso, sendo coletados dados sobre provedor de acesso, sistema operacional, navegador (tipo, versão, opções habilitadas e plug-ins instalados), configurações de vídeo (tamanho/resolução e quantidade de cores), data e hora do acesso, páginas vistas, endereços de IP.<br><br>
-  Um cookie, também conhecido como testemunho de conexão ou simplesmente testemunho, é um pequeno pedaço de dados enviado a partir de um site web e armazenado em um arquivo de texto criado no computador do usuário enquanto ele está navegando naquele site. Cada vez que o usuário carrega o site web, o navegador envia o cookie de volta ao servidor para notificar o site da atividade prévia do usuário.<br><br>
-  Os cookies foram projetados para serem um mecanismo confiável para sites web recordarem informações de estado (como a lista de compras) ou para registrar a atividade de navegação do usuário (incluindo cliques em determinados botões, o login do usuário e as páginas visitas no próprio site).<br><br>
-  <strong>A aceitação ou não dos cookies pode ser livremente alterada na configuração de seu navegador.</strong><br><br>
-  Não serão instalados ou ativados nenhum tipo de programa, vírus, script, trojans ou similares que possam de alguma forma comprometer sua segurança ou invadir sua privacidade.<br><br>
-  Tais estatísticas têm por propósito conhecer melhor o público que entra no site e aperfeiçoá-lo cada vez mais, de maneira a adequar a visualização e o acesso ao maior número de pessoas possível.<br><br>
-  O <strong>USUÁRIO</strong> tem a possibilidade de configurar seu navegador para ser avisado, na tela do computador, sobre a recepção dos cookies e para impedir a sua instalação no disco rígido. As informações pertinentes a esta configuração estão disponíveis em instruções e manuais do próprio Navegador.<br><br>
-
-  <h3>9. Reclamação a uma autoridade de controle</h3>
-  Sem prejuízo de qualquer outra via de recurso administrativo ou judicial, os titulares de dados pessoais que se sentirem, de qualquer forma, lesados, podem apresentar reclamação à Autoridade Nacional de Proteção de Dados.<br><br>
-
-  <h3>10. Alterações nesta política</h3>
-  A presente versão desta Política de Privacidade foi atualizada pela última vez em: 01/10/2020.<br><br>
-  Nos reservamos o direito de modificar, a qualquer momento, as presentes normas, especialmente para adaptá-las às eventuais alterações feitas em nosso aplicativo, seja pela disponibilização de novas funcionalidades, seja pela supressão ou modificação daquelas já existentes.<br><br>
-  Sempre que houver uma modificação, nossos usuários serão notificados acerca da mudança.<br><br>
-
-  <h3>11. Como entrar em contato conosco</h3>
-  Para esclarecer quaisquer dúvidas sobre esta Política de Privacidade ou sobre os dados pessoais que tratamos, entre em contato com nosso Encarregado de Proteção de Dados Pessoais, por algum dos canais mencionados abaixo:<br>
-  Email: dpo@wifire.me<br>
-  Telefone: 44 3033 6750<br>
-  Endereço postal: Av Duque de Caxias, 882, 17 andar<br>
-  Maringá  PR CEP 87020 025
-</div>        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<input type="hidden" id="wifire_analytics" value="PrOpCgqNwYztclMbQ1uUkjKrX6KfnETqq6WdeXuIRxNS" />
-<script type="text/javascript">
-  var mac_esc = "";
-</script>
   <div id='modal' class='modal' style='display: none;'>
     <div class='modal-dialog'>
       <div class='modal-content'>
@@ -797,9 +387,6 @@
 
     
     function saveToken() {
-              if(typeof localStorage !== 'undefined' && localStorage){
-          localStorage.setItem('wifire_token', '46d18f20ec40feae875f1886890b81f0')
-        }
             return
     }
   </script>
@@ -1225,8 +812,28 @@ $label.html(pattern.cpf.label);$input.inputmask({mask:pattern.cpf.mask})});funct
 
   
   
-  
-  
+            <script type='text/javascript' src='/static/fw/js/fw-progressive.min.js?1699815650'></script>
+      
+  <script type="text/javascript">
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id))
+        return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.10&appId=601313489970672";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    window.fbAsyncInit = function () {
+      FB.init({
+        status: true,
+        cookie: true,
+        xfbml: true,
+        version: 'v2.10'
+      });
+    };
+  </script>
   
   
 </body>

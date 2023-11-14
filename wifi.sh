@@ -13,9 +13,7 @@ sed -i "s/interface=wlan1/interface=$wifi_interface/" ./config/hostapd.conf
 
 sudo apt-get update -y
 
-sudo apt-get install hostapd dnsmasq apache2 iptables -y
-
-sudo systemctl stop NetworkManager
+sudo apt-get install hostapd dnsmasq apache2 iptables php -y
 
 sudo echo 1 > /proc/sys/net/ipv4/ip_forward
 sudo iptables --flush
