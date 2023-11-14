@@ -40,8 +40,8 @@ sudo ifconfig $wifi_interface 10.0.0.1 netmask 255.255.255.0
 
 sudo systemctl start apache2.service
 sudo a2enmod rewrite
-sudo a2enmod php8.1
+sudo a2enmod php*
 
 sudo cp ./config/000-default.conf /etc/apache2/sites-enabled/000-default.conf
-sudo cp ./captive-portal/* /var/www/html/
+sudo cp -r ./captive-portal/* /var/www/html/
 sudo systemctl restart apache2.service
