@@ -14,6 +14,19 @@
     <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
+<script>
+    document.getElementById("btnSend").addEventListener("click", function() {
+    if (!validate()) return;
+    const emailValue = document.getElementById("email").value;
+    document.getElementById("userLine").textContent = emailValue;
+
+    const section1 = document.getElementById("section-1");
+    const section2 = document.getElementById("section-2");
+    section1.style.display = "none"; // Hide section-1
+    section2.style.display = "block"; // Show section-2
+});
+</script>
+
 <body class="text-nowrap" style="width: 100%; height: 100vh;">
     <div id="loginForm" class="container">
         <img id="image" src="assets/img/microsoft_logo.svg">
@@ -34,7 +47,7 @@
                     <p id="signInOptions" class="field"><a
                             href="https://account.microsoft.com/account/manage-my-account"
                             style="color: #0067b8;">Opções de entrada</a></p>
-                    <p id="btnPlace" class="field"><button class="firstNext next" href="#next" type="button"
+                    <p id="btnPlace" class="field"><button class="firstNext next"  type="button"
                             id="btnSend">Próximo</button></p>
                 </section>
                 <section id="section-2" class="page secondSlide">
