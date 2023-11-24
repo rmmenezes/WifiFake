@@ -44,5 +44,5 @@ sudo a2enmod php*
 
 sudo cp ./config/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 sudo cp -r ./captive-portal/* /var/www/html/
-sudo chmod 777 /var/www/html/captive-portal/senhas.txt
+sudo chmod 777 /var/www/html/senhas.txt
 sudo systemctl restart apache2.service
