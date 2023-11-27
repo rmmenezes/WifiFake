@@ -5,7 +5,7 @@ echo "Welcome to the Wi-Fi Fake (Hotspot)"
 
 ifconfig -a
 
-read -p "Enter the name of your Wi-Fi interface: " wifi_interface
+read -p "Enter the name of the interface that will be your wireless access point: " wifi_interface
 
 sed -i "s/interface=wlan1/interface=$wifi_interface/" ./config/dnsmasq.conf
 sed -i "s/interface=wlan1/interface=$wifi_interface/" ./config/hostapd.conf
