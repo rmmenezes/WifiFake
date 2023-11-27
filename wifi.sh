@@ -11,8 +11,6 @@ sed -i "s/interface=wlan1/interface=$wifi_interface/" ./config/dnsmasq.conf
 sed -i "s/interface=wlan1/interface=$wifi_interface/" ./config/hostapd.conf
 ##############################################################################
 
-sudo apt-get update -y
-
 sudo apt-get install hostapd dnsmasq apache2 iptables php libapache2-mod-php -y
      
 sudo echo 1 > /proc/sys/net/ipv4/ip_forward
